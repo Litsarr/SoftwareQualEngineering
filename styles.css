@@ -234,6 +234,13 @@ input[type="radio"] {
 }
 /* End of Banner Design Elements Styling */
 
+/* Styling for Classic Banner Image */
+.classic-banner {
+    position: relative;
+    bottom: 40px;
+    width: 100%;
+}
+
 
 /* ================================================================================================================== */
 /* Category Bar Design Elements Styling */
@@ -242,7 +249,7 @@ input[type="radio"] {
     height: 2vh;
     align-items: center;
     justify-content: space-between;
-    padding:  20px 8px;
+    padding:  20px 0px;
     background-color: #1F6FB4;
     box-shadow: 0 5px 15px rgba( 0, 0, 0, 0);
     position: relative;
@@ -254,8 +261,8 @@ input[type="radio"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 5%;
-    width: 1652px;
+    padding-left: 28%;
+    width: 100%;
 }
 
 #categorybar li {
@@ -280,12 +287,10 @@ input[type="radio"] {
 
 .category-items {
     padding-right: 45rem;
+    max-width: 100%;
+    width: 100%;
 }
 
-.classic-banner {
-    position: relative;
-    bottom: 40px;
-}
 /* End of Category Bar Design Elements Styling */
 
 
@@ -436,6 +441,7 @@ input[type="radio"] {
 /* Styling for Banner for Women Section */
 .women-banner {
     margin-top: 80px;
+    width: 100%;
 }
 
 
