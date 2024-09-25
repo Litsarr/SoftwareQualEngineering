@@ -1,12 +1,18 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100%;
-    margin: 0px;
+    margin: 0;
 }
 
 .logo {
     height: 2rem;
 }
 
+
+/* ================================================================================================================== */
 /* Header Stylings */
 #header {
     display: flex;
@@ -50,15 +56,19 @@ body {
 /* End of Header Styling */ 
 
 
-
+/* ================================================================================================================== */
 /* Hero Section Styling */
-
 #banner {
     height: 70vh;
     background-color: #cccccc;
     background-image: url("img/banner.png");
     position: relative;
     bottom: 40px;
+}
+
+#banner .banner-items {
+    height: 637.69px;
+
 }
 
 #banner h2 {
@@ -88,7 +98,7 @@ body {
 /* End of Hero Section Styling */
 
 
-
+/* ================================================================================================================== */
 /* Image Carousel Styling */
 .carousel-container {
     display: flex;
@@ -107,6 +117,7 @@ body {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure carousel is below banner designs */
 }
 
 .carousel-items {
@@ -184,39 +195,304 @@ input[type="radio"] {
 /* End of Image Carousel Styling */
 
 
-
+/* ================================================================================================================== */
 /* Banner Design Elements Styling */
+#banner #design-1, #banner #design-2, #banner #design-3, #banner #design-4, #banner #design-5 {
+    position: absolute; /* Absolute positioning for free placement */
+    z-index: 2; /* Above the carousel */
+    pointer-events: none; /* Prevents interference with the carousel interactions */
+}
+
 #banner #design-1 {
     height: 280px;
-    position: relative;
-    bottom: 970px;
-    left: 1012px;
+    top: 20px;
+    left: 182px;
 }
 
 #banner #design-2 {
     height: 100px;
-    position: relative;
-    bottom: 760px;
-    left: 940px;
+    top: 400px;
+    left: 270px;
 }
 
 #banner #design-3 {
     height: 100px;
-    position: relative;
-    bottom: 700px;
-    left: 870px;
+    top: 450px;
+    left: 300px;
 }
 
 #banner #design-4 {
     height: 400px;
-    position: relative;
-    bottom: 720px;
-    left: 1213px;
+    top: 120px;
+    right: 178px;
 }
 
 #banner #design-5 {
     height: 100px;
+    top: -40px;
+    right: 290px;
+}
+/* End of Banner Design Elements Styling */
+
+
+/* ================================================================================================================== */
+/* Category Bar Design Elements Styling */
+#category-bar {
+    display: flex;
+    height: 2vh;
+    align-items: center;
+    justify-content: space-between;
+    padding:  20px 8px;
+    background-color: #1F6FB4;
+    box-shadow: 0 5px 15px rgba( 0, 0, 0, 0);
     position: relative;
-    bottom: 1195px;
-    left: 1000px;
+    top: -40px;
+}
+
+
+#categorybar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5%;
+    width: 1652px;
+}
+
+#categorybar li {
+    list-style-type: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+#categorybar li a {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#categorybar li a:hover {
+    color: #f0941a;
+}
+
+
+.category-items {
+    padding-right: 45rem;
+}
+
+.classic-banner {
+    position: relative;
+    bottom: 40px;
+}
+/* End of Category Bar Design Elements Styling */
+
+
+/* ================================================================================================================== */
+/* Start of Product Cards Styling */
+#classic-product-cards-row-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Spacing between product cards */
+}
+
+#classic-product-cards-row-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Spacing between product cards */
+    margin-top: 50px;
+}
+
+#women-product-cards-row-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Spacing between product cards */
+    margin-top: 40px;
+}
+
+#women-product-cards-row-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Spacing between product cards */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.classic-products:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+/* Add to Cart button styling */
+.add-to-cart-btn {
+    display: block;
+    padding: 10px 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #10069f; /* Button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    opacity: 0; /* Initially invisible */
+    transform: translateY(10px); /* Slightly below position */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.classic-products:hover .add-to-cart-btn {
+    opacity: 1; /* Show the button on hover */
+    transform: translateY(0); /* Move it up */
+}
+
+.women-products:hover .add-to-cart-btn {
+    opacity: 1; /* Show the button on hover */
+    transform: translateY(0); /* Move it up */
+}
+
+/* ================================================================================================================== */
+
+/* Classic Product Cards Styling */
+/* NOTE!!!!!! REMOVE BOX SHADOW AND CHANGE BG COLOR TO WHITE WHEN DONE WITH THE WEBSITE*/
+.classic-products {
+    position: relative; /* Allows absolute positioning of the overlay */
+    width: 250px;
+    padding: 20px; /* Adds padding inside the product card */
+    background-color: #f0f0f0; /* Light grey background for visibility */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure child elements are clipped */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.classic-products p {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: -30px;
+    color: #231F21;
+}
+
+.classic-products h4 {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    margin-top: -30px;
+    color: #10069f;
+}
+
+.classic-products h3 {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.2rem;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #10069f;
+}
+
+
+.classic-products img {
+    width: 100%; /* Full width of the product card */
+    height: 250px; 
+    object-fit: cover; /* Ensure image covers the entire area */
+    border-radius: 10px;
+    transition: filter 0.3s ease; /* Smooth filter transition */
+}
+
+.classic-products:hover img {
+    filter: blur(5px); /* Blur effect on hover */
+}
+
+
+.classic-products:hover .overlay {
+    opacity: 1; /* Show the overlay on hover */
+}
+/* End of Classic Product Cards Styling */
+
+
+/* ================================================================================================================== */
+/* Styling for Banner for Women Section */
+.women-banner {
+    margin-top: 80px;
+}
+
+
+/* ================================================================================================================== */
+/* Start of Women Product Cards Styling */
+.women-products {
+    position: relative; /* Allows absolute positioning of the overlay */
+    width: 250px;
+    padding: 20px; /* Adds padding inside the product card */
+    background-color: #f0f0f0; /* Light grey background for visibility */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure child elements are clipped */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.women-products p {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: -30px;
+    color: #231F21;
+}
+
+.women-products h4 {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    margin-top: -30px;
+    color: #F37724;
+}
+
+.women-products h3 {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.2rem;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #F37724;
+}
+
+
+.women-products img {
+    width: 100%; /* Full width of the product card */
+    height: 250px; 
+    object-fit: cover; /* Ensure image covers the entire area */
+    border-radius: 10px;
+    transition: filter 0.3s ease; /* Smooth filter transition */
+}
+
+.women-products:hover img {
+    filter: blur(5px); /* Blur effect on hover */
+}
+
+
+.women-products:hover .overlay {
+    opacity: 1; /* Show the overlay on hover */
 }
