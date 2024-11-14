@@ -1,13 +1,12 @@
-// Import the logout function from api.js
-import { logout } from "./api.js"; // Assuming logout function is implemented in api.js
+import { logout } from "./api.js";
 
 export async function handleLogout() {
   try {
-    // Send logout request (no need for CSRF token as JWT is handled)
+    // Send logout request
     await logout();
 
     // Clear local storage or any session data related to the user
-    localStorage.removeItem("jwtToken"); // Assuming you're storing the JWT token in localStorage
+    localStorage.removeItem("jwtToken");
 
     // Redirect the user to the login page
     window.location.href = "admin.html";

@@ -1,4 +1,4 @@
-import { getRecentOrders } from "./api.js"; // Adjust the path as needed
+import { getRecentOrders } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Handle tab switching (already in your HTML)
+// Handle tab switching
 document
   .getElementById("all-orders-tab")
   .addEventListener("click", function () {
