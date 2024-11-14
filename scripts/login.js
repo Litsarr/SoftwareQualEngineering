@@ -1,4 +1,4 @@
-import { login } from "./api.js"; // Import functions from api.js
+import { login } from "./api.js";
 
 // Function to handle login
 export async function validateLogin() {

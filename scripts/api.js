@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080"; // Change this URL to match your backend API
+const BASE_URL = "http://localhost:8080"; // Backend API URL
 
 // Function to log in and receive a JWT token
 async function login(username, password) {
@@ -21,7 +21,7 @@ async function login(username, password) {
         const data = await response.json();
         console.log("Login successful", data); // Logs the JSON response
 
-        // Store JWT token (assuming the response contains a 'token' field)
+        // Store JWT token to process requests
         localStorage.setItem("jwtToken", data.token);
 
         // Return the response data for further use
@@ -54,14 +54,13 @@ async function logout() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`, // Pass the JWT token in the Authorization header
       },
-      credentials: "include", // Ensure cookies (if used) are included
+      credentials: "include", // Ensure cookies are included
     });
 
     if (!response.ok) {
       throw new Error("Logout failed");
     }
 
-    // Optionally, handle the server response (e.g., clear cookies or handle session)
     console.log("Successfully logged out");
     // Clear the JWT token from localStorage after successful logout
     localStorage.removeItem("jwtToken");
