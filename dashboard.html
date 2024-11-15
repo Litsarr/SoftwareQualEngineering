@@ -74,7 +74,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
-            font-weight: bold;
+            font-weight: normal;
         }
         .crud-btns {
             display: flex;
@@ -84,6 +84,18 @@
         .crud-btns button {
             padding: 5px 10px;
             cursor: pointer;
+        }
+        .crud-btns button.add-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .crud-btns button.edit-btn {
+            background-color: #ffca28;
+            color: white;
+        }
+        .crud-btns button.delete-btn {
+            background-color: #ff4d4d;
+            color: white;
         }
         .items-table {
             width: 100%;
@@ -112,6 +124,65 @@
             font-size: 0.9em;
             color: #555;
         }
+        /* Inventory Form Styles */
+        #add-item-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group input, .form-group textarea {
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        #sizes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .size-block {
+            display: flex;
+            gap: 10px;
+        }
+        .size-block input {
+            flex: 1;
+        }
+        .size-block .stock-input {
+            width: 100px;
+        }
+        .size-block button {
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 1.1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .size-block button:hover {
+            background-color: #218838;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -126,104 +197,162 @@
         <div class="tabs">
             <div class="tab active" id="all-orders-tab">All Orders</div>
             <div class="tab" id="completed-orders-tab">Completed Orders</div>
+            <div class="tab" id="add-item-tab">Add a New Item</div>
         </div>
 
         <div id="all-orders" class="tab-content active">
             <!-- All Orders Section -->
-            <div class="order-block" id="order-001">
+            <div class="order-block">
                 <div class="order-header">
-                    <span>Order Number: 001</span>
-                    <span>Date: 2024-11-01</span>
-                    <span>Total Price: ₱900.00</span>
-                    <div class="crud-btns">
-                        <button onclick="editOrder('order-001')">Edit</button>
-                        <button onclick="deleteOrder('order-001')">Delete</button>
-                        <button onclick="completeOrder('order-001')">Complete</button>
-                    </div>
+                    <span>Product: Islander Black</span>
+                    <span>Price: ₱450</span>
                 </div>
-                <table class="items-table">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Islander Black</td>
-                            <td>2</td>
-                            <td>₱450.00</td>
-                        </tr>
-                        <tr>
-                            <td>Islander Blue</td>
-                            <td>1</td>
-                            <td>₱450.00</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="item-details">
-                    <p><strong>Name:</strong> John Doe</p>
-                    <p><strong>Address:</strong> 123 Main St, Springfield, IL</p>
-                    <p><strong>Phone Number:</strong> (123) 456-7890</p>
+                <div class="order-header">
+                    <span>Customer: Juan Dela Cruz</span>
+                    <span>Address: 123 Barangay Mabuhay, Quezon City, Philippines</span>
+                    <span>Phone: 0917-123-4567</span>
+                </div>
+                <div class="crud-btns">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
                 </div>
             </div>
-
-            <!-- Other orders here... -->
-
+            <div class="order-block">
+                <div class="order-header">
+                    <span>Product: Islander White</span>
+                    <span>Price: ₱450</span>
+                </div>
+                <div class="order-header">
+                    <span>Customer: Maria Santos</span>
+                    <span>Address: 456 Calle Luna, Pasig City, Philippines</span>
+                    <span>Phone: 0922-234-5678</span>
+                </div>
+                <div class="crud-btns">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+            <div class="order-block">
+                <div class="order-header">
+                    <span>Product: Islander Blue</span>
+                    <span>Price: ₱450</span>
+                </div>
+                <div class="order-header">
+                    <span>Customer: Pedro Gomez</span>
+                    <span>Address: 789 Bagumbayan, Taguig, Philippines</span>
+                    <span>Phone: 0935-345-6789</span>
+                </div>
+                <div class="crud-btns">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
         </div>
 
         <div id="completed-orders" class="tab-content">
             <!-- Completed Orders Section -->
         </div>
+
+        <div id="add-item" class="tab-content">
+            <h1>Add a New Item</h1>
+            <form id="add-item-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ImageTop">Top Side Image:</label>
+                    <input type="file" id="ImageTop" name="ImageTop" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ImageSide">Side Image:</label>
+                    <input type="file" id="ImageSide" name="ImageSide" accept="image/*" required>
+                </div>
+
+                <div class="form-group" id="sizes-container">
+                    <label>Sizes:</label>
+                    <div class="size-block">
+                        <input type="text" name="sizes[]" placeholder="Size" required>
+                        <input type="number" name="stock[]" class="stock-input" placeholder="Stock" required>
+                    </div>
+                    <button type="button" onclick="addSize()">Add Size</button>
+                </div>
+
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
     </div>
 
     <script>
-        // Handle tab switching
+        // Tab switching functionality
         document.getElementById('all-orders-tab').addEventListener('click', function() {
             document.getElementById('all-orders').classList.add('active');
             document.getElementById('completed-orders').classList.remove('active');
+            document.getElementById('add-item').classList.remove('active');
             this.classList.add('active');
             document.getElementById('completed-orders-tab').classList.remove('active');
+            document.getElementById('add-item-tab').classList.remove('active');
         });
 
         document.getElementById('completed-orders-tab').addEventListener('click', function() {
             document.getElementById('completed-orders').classList.add('active');
             document.getElementById('all-orders').classList.remove('active');
+            document.getElementById('add-item').classList.remove('active');
             this.classList.add('active');
             document.getElementById('all-orders-tab').classList.remove('active');
+            document.getElementById('add-item-tab').classList.remove('active');
         });
 
-        // CRUD Functions
-        function editOrder(orderId) {
-            const newTotal = prompt('Edit total price for ' + orderId + ':');
-            if (newTotal) {
-                const orderElement = document.getElementById(orderId);
-                const priceSpan = orderElement.querySelector('.order-header span:nth-child(3)');
-                priceSpan.textContent = `Total Price: ₱${newTotal}`;
-            }
-        }
+        document.getElementById('add-item-tab').addEventListener('click', function() {
+            document.getElementById('add-item').classList.add('active');
+            document.getElementById('all-orders').classList.remove('active');
+            document.getElementById('completed-orders').classList.remove('active');
+            this.classList.add('active');
+            document.getElementById('all-orders-tab').classList.remove('active');
+            document.getElementById('completed-orders-tab').classList.remove('active');
+        });
 
-        function deleteOrder(orderId) {
-            const orderElement = document.getElementById(orderId);
-            if (confirm('Are you sure you want to delete this order?')) {
-                orderElement.remove();
-            }
-        }
+        // Add Size functionality
+        document.getElementById('add-size-button').addEventListener('click', function() {
+            const sizesContainer = document.getElementById('sizes-container');
+            const newSizeBlock = document.createElement('div');
+            newSizeBlock.classList.add('size-block');
+            newSizeBlock.innerHTML = `
+                <input type="text" name="item-sizes[]" placeholder="Size" required>
+                <input type="number" name="item-stock[]" class="stock-input" placeholder="Stock" required>
+                <button type="button" class="remove-size-button">Remove</button>
+            `;
+            sizesContainer.appendChild(newSizeBlock);
 
-        function completeOrder(orderId) {
-            if (confirm('Are you sure you want to complete this order?')) {
-                const orderElement = document.getElementById(orderId);
-                const completedOrdersTab = document.getElementById('completed-orders');
-                completedOrdersTab.appendChild(orderElement);
-                alert('Order has been marked as completed.');
-            }
-        }
+            // Add remove button functionality
+            newSizeBlock.querySelector('.remove-size-button').addEventListener('click', function() {
+                sizesContainer.removeChild(newSizeBlock);
+            });
+        });
 
+        // Handle form submission
+        document.getElementById('add-item-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Item added successfully!');
+            this.reset();
+        });
+
+        // Logout function
         function logout() {
             alert('Logging out...');
-            // You can add additional logout functionality here, such as redirecting to a login page
-            window.location.href = "login.html";  // Example redirection
+            window.location.href = "admin.html";
         }
     </script>
 </body>
