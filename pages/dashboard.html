@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <script type="module" src="../scripts/logout.js"></script>
+    <script type="module" src="../scripts/orders.js"></script>
+    <script type="module" src="../scripts/products.js"></script>
+    <script type="module" src="../scripts/api.js"></script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -202,52 +207,7 @@
         </div>
 
         <div id="all-orders" class="tab-content active">
-            <!-- All Orders Section -->
-            <div class="order-block">
-                <div class="order-header">
-                    <span>Product: Islander Black</span>
-                    <span>Price: ₱450</span>
-                </div>
-                <div class="order-header">
-                    <span>Customer: Juan Dela Cruz</span>
-                    <span>Address: 123 Barangay Mabuhay, Quezon City, Philippines</span>
-                    <span>Phone: 0917-123-4567</span>
-                </div>
-                <div class="crud-btns">
-                    <button class="edit-btn">Complete Order</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </div>
-            <div class="order-block">
-                <div class="order-header">
-                    <span>Product: Islander White</span>
-                    <span>Price: ₱450</span>
-                </div>
-                <div class="order-header">
-                    <span>Customer: Maria Santos</span>
-                    <span>Address: 456 Calle Luna, Pasig City, Philippines</span>
-                    <span>Phone: 0922-234-5678</span>
-                </div>
-                <div class="crud-btns">
-                    <button class="edit-btn">Complete Order</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </div>
-            <div class="order-block">
-                <div class="order-header">
-                    <span>Product: Islander Blue</span>
-                    <span>Price: ₱450</span>
-                </div>
-                <div class="order-header">
-                    <span>Customer: Pedro Gomez</span>
-                    <span>Address: 789 Bagumbayan, Taguig, Philippines</span>
-                    <span>Phone: 0935-345-6789</span>
-                </div>
-                <div class="crud-btns">
-                    <button class="edit-btn">Complete Order</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </div>
+            <!-- All Orders Section will be populated dynamically -->
         </div>
 
         <div id="completed-orders" class="tab-content">
@@ -261,28 +221,38 @@
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-
+        
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" required></textarea>
                 </div>
-
+        
                 <div class="form-group">
                     <label for="price">Price:</label>
                     <input type="number" id="price" name="price" step="0.01" required>
                 </div>
-
+        
                 <div class="form-group">
-                    <label for="price">Top Image:</label>
-                    <input type="url" id="ImageTop" name="ImageTop" step="0.01" required>
+                    <label for="ImageTop">Top Image:</label>
+                    <input type="url" id="ImageTop" name="ImageTop" required>
                 </div>
-
-
+        
                 <div class="form-group">
                     <label for="ImageSide">Side Image:</label>
-                    <input type="url" id="ImageSide" name="ImageSide" step="0.01" required>
+                    <input type="url" id="ImageSide" name="ImageSide" required>
                 </div>
-
+        
+                <!-- Category Dropdown -->
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="1">Category 1</option>
+                        <option value="2">Category 2</option>
+                        <option value="3">Category 3</option>
+                        <option value="4">Category 4</option>
+                    </select>
+                </div>
+        
                 <div class="form-group" id="sizes-container">
                     <label>Sizes:</label>
                     <div class="size-block">
@@ -291,10 +261,11 @@
                     </div>
                     <button type="button" onclick="addSize()">Add Size</button>
                 </div>
-
+        
                 <button type="submit">Add Item</button>
             </form>
         </div>
+        
 
         <div id="existing-items" class="tab-content">
             <h1>Existing Items</h1>
@@ -316,80 +287,6 @@
     </div>
 
     <script>
-        // Tab switching functionality
-        document.getElementById('all-orders-tab').addEventListener('click', function() {
-            document.getElementById('all-orders').classList.add('active');
-            document.getElementById('completed-orders').classList.remove('active');
-            document.getElementById('add-item').classList.remove('active');
-            document.getElementById('existing-items').classList.remove('active');
-            this.classList.add('active');
-            document.getElementById('completed-orders-tab').classList.remove('active');
-            document.getElementById('add-item-tab').classList.remove('active');
-            document.getElementById('existing-items-tab').classList.remove('active');
-        });
-    
-        document.getElementById('completed-orders-tab').addEventListener('click', function() {
-            document.getElementById('completed-orders').classList.add('active');
-            document.getElementById('all-orders').classList.remove('active');
-            document.getElementById('add-item').classList.remove('active');
-            document.getElementById('existing-items').classList.remove('active');
-            this.classList.add('active');
-            document.getElementById('all-orders-tab').classList.remove('active');
-            document.getElementById('add-item-tab').classList.remove('active');
-            document.getElementById('existing-items-tab').classList.remove('active');
-        });
-
-    
-        document.getElementById('add-item-tab').addEventListener('click', function() {
-            document.getElementById('add-item').classList.add('active');
-            document.getElementById('all-orders').classList.remove('active');
-            document.getElementById('completed-orders').classList.remove('active');
-            document.getElementById('existing-items').classList.remove('active');
-            this.classList.add('active');
-            document.getElementById('completed-orders-tab').classList.remove('active');
-            document.getElementById('all-orders-tab').classList.remove('active');
-            document.getElementById('existing-items-tab').classList.remove('active');
-        });
-    
-        document.getElementById('existing-items-tab').addEventListener('click', function() {
-            document.getElementById('existing-items').classList.add('active');
-            document.getElementById('add-item').classList.remove('active');
-            document.getElementById('all-orders').classList.remove('active');
-            document.getElementById('completed-orders').classList.remove('active');
-            this.classList.add('active');
-            document.getElementById('completed-orders-tab').classList.remove('active');
-            document.getElementById('add-item-tab').classList.remove('active');
-            document.getElementById('all-orders-tab').classList.remove('active');
-        });
-        
-         // Function to handle the "Complete Order" button click
-        function completeOrder(button) {
-            const orderBlock = button.closest('.order-block');
-            const orderDetails = orderBlock.innerHTML;
-            
-            // Create a new "Completed Order" block
-            const completedOrderBlock = document.createElement('div');
-            completedOrderBlock.classList.add('order-block');
-            completedOrderBlock.innerHTML = orderDetails;
-
-            const completeBtn = completedOrderBlock.querySelector('.edit-btn');
-            completeBtn.textContent = 'Completed'; 
-            completeBtn.disabled = true; 
-
-            // Add the completed order to the "Completed Orders" section
-            document.getElementById('completed-orders').appendChild(completedOrderBlock);
-
-            // Remove the order from the "All Orders" section
-            orderBlock.remove();
-        }
-
-        // Add the event listener to all "Complete Order" buttons
-        document.querySelectorAll('.edit-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                completeOrder(this);
-            });
-        });
-    
         // Form submission functionality with confirmation message
         document.getElementById('add-item-form').addEventListener('submit', function(e) {
             e.preventDefault();

@@ -1,4 +1,9 @@
+import { createClient } from "../@supabase/supabase-js"; // Correctly import Supabase client
+
 const BASE_URL = "http://localhost:8080"; // Backend API URL
+const supabaseUrl = "https://ozptbbwzmxdbmzgeyqmf.supabase.co"; // Your Supabase URL
+const supabaseKey = "your-supabase-api-key"; // Your Supabase API key
+const supabase = createClient(supabaseUrl, supabaseKey); // Initialize Supabase client
 
 // Function to log in and receive a JWT token
 async function login(username, password) {
@@ -71,9 +76,9 @@ async function logout() {
   }
 }
 
+// Function to fetch recent orders
 async function getRecentOrders() {
   try {
-    // Retrieve the JWT token from local storage (or other storage mechanisms)
     const token = localStorage.getItem("jwtToken");
 
     if (!token) {
@@ -101,5 +106,168 @@ async function getRecentOrders() {
   }
 }
 
+// Function to complete an order
+async function completeOrder(orderId) {
+  try {
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+
+    const response = await fetch(`${BASE_URL}/orders/complete/${orderId}`, {
+      method: "POST", // Change this from PUT to POST
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+      },
+      credentials: "include", // Include credentials for authenticated requests
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to complete the order");
+    }
+
+    const responseText = await response.text(); // Use text() to get plain text response
+
+    // Log or handle the plain text response
+    console.log(responseText); // Logs the message returned by the backend
+
+    return responseText; // Return the plain text response if needed
+  } catch (error) {
+    console.error("Error completing order:", error);
+    throw error;
+  }
+}
+
+// Function to delete an order
+async function deleteOrder(orderId) {
+  try {
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+
+    const response = await fetch(`${BASE_URL}/orders/delete/${orderId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+      },
+      credentials: "include", // Include credentials for authenticated requests
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete the order");
+    }
+
+    const responseText = await response.text(); // Use text() to get plain text response
+
+    // Log or handle the plain text response
+    console.log(responseText); // Logs the message returned by the backend
+
+    return responseText; // Return the plain text response if needed
+  } catch (error) {
+    console.error("Error deleting order:", error);
+    throw error;
+  }
+}
+
+async function getCompletedOrders() {
+  try {
+    const token = localStorage.getItem("jwtToken");
+
+    if (!token) {
+      throw new Error("No JWT token found");
+    }
+
+    const response = await fetch(`${BASE_URL}/orders/completed`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+      },
+      credentials: "include", // Include credentials for authenticated requests
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch completed orders");
+    }
+
+    const completedOrders = await response.json();
+    return completedOrders;
+  } catch (error) {
+    console.error("Error fetching completed orders:", error);
+    return [];
+  }
+}
+
+// API call to create a new product
+async function createProduct(productData) {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/products/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(productData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to create product");
+    }
+
+    return await response.json(); // Return the saved product
+  } catch (error) {
+    console.error("Error creating product:", error);
+    throw error;
+  }
+}
+
+// Function to upload an image to Supabase Storage and get the URL
+async function uploadImage(file, filePath) {
+  try {
+    // Get a reference to the storage bucket
+    const { data, error } = await supabase.storage
+      .from("product-images") // Use your bucket name
+      .upload(filePath, file);
+
+    if (error) {
+      throw new Error(`Error uploading file: ${error.message}`);
+    }
+
+    // Get the public URL of the uploaded image
+    const { publicURL, error: urlError } = supabase.storage
+      .from("product-images")
+      .getPublicUrl(filePath);
+
+    if (urlError) {
+      throw new Error(`Error getting file URL: ${urlError.message}`);
+    }
+
+    return publicURL; // Return the URL of the uploaded image
+  } catch (error) {
+    console.error("Error uploading image to Supabase:", error);
+    throw error;
+  }
+}
+
 // Export functions for use in other scripts
-export { login, logout, getRecentOrders };
+export {
+  login,
+  logout,
+  getRecentOrders,
+  completeOrder,
+  deleteOrder,
+  getCompletedOrders,
+  createProduct,
+  uploadImage,
+};
