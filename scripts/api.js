@@ -1,10 +1,4 @@
-import { createClient } from "../@supabase/supabase-js"; // Correctly import Supabase client
-
 const BASE_URL = "http://localhost:8080"; // Backend API URL
-const supabaseUrl = "https://ozptbbwzmxdbmzgeyqmf.supabase.co"; // Your Supabase URL
-const supabaseKey = "your-supabase-api-key"; // Your Supabase API key
-const supabase = createClient(supabaseUrl, supabaseKey); // Initialize Supabase client
-
 // Function to log in and receive a JWT token
 async function login(username, password) {
   const loginData = { username, password };
@@ -203,20 +197,61 @@ async function getCompletedOrders() {
   }
 }
 
-// API call to create a new product
+async function uploadImages(event) {
+  event.preventDefault(); // Prevent form from submitting the traditional way
+  const uploadForm = document.getElementById("upload-images-form");
+  const formData = new FormData(uploadForm);
+
+  try {
+    const response = await fetch(`${BASE_URL}/images/upload`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const responseText = await response.text();
+      throw new Error(
+        `Failed to upload images: ${response.statusText}. Response: ${responseText}`
+      );
+    }
+
+    const responseJson = await response.json();
+
+    // Get image paths from the response
+    const topImageUrl = responseJson.topImagePath;
+    const sideImageUrl = responseJson.sideImagePath;
+
+    // Set the hidden input fields with the image URLs
+    document.getElementById("topImageUrl").value = topImageUrl;
+    document.getElementById("sideImageUrl").value = sideImageUrl;
+
+    // Log the hidden fields to confirm they are set correctly
+    console.log("Top Image URL:", document.getElementById("topImageUrl").value);
+    console.log(
+      "Side Image URL:",
+      document.getElementById("sideImageUrl").value
+    );
+
+    // Enable the "Add Item" form submit button or proceed with the next steps
+    document.querySelector(
+      "#add-item-form button[type='submit']"
+    ).disabled = false;
+  } catch (error) {
+    console.error("Error uploading images:", error);
+    alert("Error uploading images: " + error.message);
+  }
+}
+
+// Function to create a new product
 async function createProduct(productData) {
   const token = localStorage.getItem("jwtToken");
-
-  if (!token) {
-    throw new Error("No JWT token found");
-  }
 
   try {
     const response = await fetch(`${BASE_URL}/products/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`, // Include JWT token in Authorization header
       },
       body: JSON.stringify(productData),
     });
@@ -225,38 +260,41 @@ async function createProduct(productData) {
       throw new Error("Failed to create product");
     }
 
-    return await response.json(); // Return the saved product
+    const result = await response.json();
+    return result; // Return the created product
   } catch (error) {
     console.error("Error creating product:", error);
     throw error;
   }
 }
 
-// Function to upload an image to Supabase Storage and get the URL
-async function uploadImage(file, filePath) {
+// Function to fetch all products
+async function getProducts() {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
   try {
-    // Get a reference to the storage bucket
-    const { data, error } = await supabase.storage
-      .from("product-images") // Use your bucket name
-      .upload(filePath, file);
+    const response = await fetch(`${BASE_URL}/products`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Include JWT token in Authorization header
+      },
+      credentials: "include", // Include credentials for authenticated requests
+    });
 
-    if (error) {
-      throw new Error(`Error uploading file: ${error.message}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
     }
 
-    // Get the public URL of the uploaded image
-    const { publicURL, error: urlError } = supabase.storage
-      .from("product-images")
-      .getPublicUrl(filePath);
-
-    if (urlError) {
-      throw new Error(`Error getting file URL: ${urlError.message}`);
-    }
-
-    return publicURL; // Return the URL of the uploaded image
+    const products = await response.json(); // Parse the response to get product data
+    return products; // Return the list of products
   } catch (error) {
-    console.error("Error uploading image to Supabase:", error);
-    throw error;
+    console.error("Error fetching products:", error);
+    return []; // Return an empty array if there is an error
   }
 }
 
@@ -267,7 +305,8 @@ export {
   getRecentOrders,
   completeOrder,
   deleteOrder,
-  getCompletedOrders,
+  uploadImages,
   createProduct,
-  uploadImage,
+  getCompletedOrders,
+  getProducts,
 };
