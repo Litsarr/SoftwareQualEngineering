@@ -16,8 +16,7 @@
         }
         .login-box {
             background-color: #ffffff;
-            padding-left: 25px;
-            padding-bottom: 40px;
+            padding: 25px 25px 40px 25px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 320px;
@@ -25,7 +24,6 @@
         }
         .login-box h2 {
             text-align: center;
-            padding-right: 25px;
             margin-bottom: 20px;
         }
         .login-box input[type="text"],
@@ -67,7 +65,6 @@
         <div id="message" class="message"></div>
     </div>
 
-    <!-- Import login.js script -->
     <script type="module">
         import { validateLogin } from '../scripts/login.js';
 
@@ -76,7 +73,7 @@
 
             if (loginButton) {
                 loginButton.addEventListener("click", () => {
-                    validateLogin();  // Calls validateLogin function from login.js
+                    validateLogin();
                 });
             } else {
                 console.error("Login button not found!");

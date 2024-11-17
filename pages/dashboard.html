@@ -5,42 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script type="module">
-        import { handleLogout } from "../scripts/logout.js";  // Import logout handler
-        import { uploadImages, createProduct } from "../scripts/api.js";     // Import uploadImages
-        import { addSize } from "../scripts/products.js";     // Import addSize function
+        import { handleLogout } from "../scripts/logout.js";
+        import { uploadImages, uploadEditImages } from "../scripts/api.js";
+        import { addSize, addEditSize, displayProducts, populateCategories } from "../scripts/products.js";
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Attach event listener to logout button
+            // Attach event listeners
             document.querySelector(".logout-btn").addEventListener("click", handleLogout);
-
-            // Attach event listener to upload button
             document.querySelector("#upload-button").addEventListener("click", uploadImages);
-
             document.getElementById('add-size-btn').addEventListener('click', addSize);
+            document.getElementById('add-edit-size-btn').addEventListener('click', addEditSize);
 
-
-            // Attach event listeners to tabs for tab switching
+            // Tab switching logic
             const tabs = document.querySelectorAll(".tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
                     tabs.forEach(tab => tab.classList.remove("active"));
                     this.classList.add("active");
-
-                    // Hide all tab content
                     document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
-
-                    // Show corresponding content
                     const tabContent = document.getElementById(this.id.replace("-tab", ""));
                     tabContent.classList.add("active");
                 });
             });
+
+            // Populate categories on page load
+            populateCategories();
         });
     </script>
-
     <script type="module" src="../scripts/orders.js"></script>
     <script type="module" src="../scripts/products.js"></script>
     <script type="module" src="../scripts/api.js"></script>
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,7 +65,6 @@
         .logout-btn:hover {
             background-color: #e60000;
         }
-
         .dashboard-container {
             width: 80%;
             margin: 50px auto;
@@ -122,10 +115,7 @@
             padding: 5px 10px;
             cursor: pointer;
         }
-        .crud-btns button.add-btn {
-            background-color: #28a745;
-            color: white;
-        }
+        .crud-btns button.add-btn,
         .crud-btns button.edit-btn {
             background-color: #28a745;
             color: white;
@@ -221,41 +211,38 @@
             background-color: #0056b3;
         }
         .modal {
-        display: none; /* Hidden by default */
-        position: fixed;
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
-    }
-
-    .modal-content {
-        background-color: white;
-        margin: 15% auto;
-        padding: 20px;
-        border-radius: 8px;
-        width: 80%;
-        max-width: 600px;
-    }
-
-    .close-btn {
-        color: #aaa;
-        font-size: 28px;
-        font-weight: bold;
-        position: absolute;
-        top: 10px;
-        right: 20px;
-    }
-
-    .close-btn:hover,
-    .close-btn:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -289,41 +276,31 @@
                     <label for="ImageTop">Top Image:</label>
                     <input type="file" id="ImageTop" name="ImageTop" required>
                 </div>
-            
                 <div class="form-group">
                     <label for="ImageSide">Side Image:</label>
                     <input type="file" id="ImageSide" name="ImageSide" required>
                 </div>
-            
                 <button type="button" id="upload-button">Upload Images</button>
             </form>
-            
             <form id="add-item-form">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-        
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" required></textarea>
                 </div>
-        
                 <div class="form-group">
                     <label for="price">Price:</label>
                     <input type="number" id="price" name="price" step="0.01" required>
                 </div>
-        
                 <div class="form-group">
                     <label for="category">Category:</label>
                     <select id="category" name="category" required>
-                        <option value="1">Category 1</option>
-                        <option value="2">Category 2</option>
-                        <option value="3">Category 3</option>
-                        <option value="4">Category 4</option>
+                        <!-- Categories will be dynamically loaded -->
                     </select>
                 </div>
-        
                 <div class="form-group" id="sizes-container">
                     <label>Sizes:</label>
                     <div class="size-block">
@@ -332,11 +309,9 @@
                     </div>
                     <button type="button" id="add-size-btn">Add Size</button>
                 </div>
-        
                 <!-- Hidden Fields for Uploaded Image URLs -->
                 <input type="hidden" id="topImageUrl" name="topImageUrl">
                 <input type="hidden" id="sideImageUrl" name="sideImageUrl">
-        
                 <button type="submit">Add Item</button>
             </form>
         </div>
@@ -349,7 +324,10 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Sizes</th>
+                        <th>Sizes and Quantity</th>
+                        <th>Image Top</th>
+                        <th>Image Side</th>
+                        <th>Category</th> <!-- Added category header -->
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -358,51 +336,54 @@
                 </tbody>
             </table>
         </div>
+        
         <!-- Modal for Edit Product -->
-<div id="edit-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Edit Product</h2>
-        <form id="edit-product-form">
-            <div class="form-group">
-                <label for="edit-name">Name:</label>
-                <input type="text" id="edit-name" name="name" required>
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Edit Product</h2>
+                <form id="edit-upload-images-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="edit-ImageTop">Top Image:</label>
+                        <input type="file" id="edit-ImageTop" name="ImageTop">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-ImageSide">Side Image:</label>
+                        <input type="file" id="edit-ImageSide" name="ImageSide">
+                    </div>
+                    <button type="button" id="edit-upload-button">Upload Images</button>
+                </form>
+                <form id="edit-product-form">
+                    <input type="hidden" name="productId" id="edit-product-id">
+                    <div class="form-group">
+                        <label for="edit-name">Name:</label>
+                        <input type="text" id="edit-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-description">Description:</label>
+                        <textarea id="edit-description" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-price">Price:</label>
+                        <input type="number" id="edit-price" name="price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-category">Category:</label>
+                        <select id="edit-category" name="category" required>
+                            <!-- Categories will be dynamically loaded -->
+                        </select>
+                    </div>
+                    <div class="form-group" id="edit-sizes-container">
+                        <label>Sizes:</label>
+                        <!-- Sizes will be dynamically loaded -->
+                    </div>
+                    <button type="button" id="add-edit-size-btn">Add Size</button>
+                    <input type="hidden" id="edit-topImageUrl" name="topImageUrl">
+                    <input type="hidden" id="edit-sideImageUrl" name="sideImageUrl">
+                    <button type="submit">Update Product</button>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for="edit-description">Description:</label>
-                <textarea id="edit-description" name="description" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="edit-price">Price:</label>
-                <input type="number" id="edit-price" name="price" step="0.01" required>
-            </div>
-
-            <div class="form-group">
-                <label for="edit-category">Category:</label>
-                <select id="edit-category" name="category" required>
-                    <!-- Categories will be dynamically loaded -->
-                </select>
-            </div>
-
-            <div class="form-group" id="edit-sizes-container">
-                <label>Sizes:</label>
-                <div class="size-block">
-                    <input type="text" name="sizes[]" placeholder="Size" required>
-                    <input type="number" name="stock[]" class="stock-input" placeholder="Stock" required>
-                </div>
-                <button type="button" id="edit-add-size-btn">Add Size</button>
-            </div>
-
-            <input type="hidden" id="edit-topImageUrl" name="topImageUrl">
-            <input type="hidden" id="edit-sideImageUrl" name="sideImageUrl">
-
-            <button type="submit">Update Product</button>
-        </form>
+        </div>
     </div>
-</div>
-
-    </div> 
 </body>
 </html>

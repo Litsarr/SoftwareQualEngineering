@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:8080"; // Backend API URL
+
 // Function to log in and receive a JWT token
 async function login(username, password) {
   const loginData = { username, password };
@@ -10,7 +11,7 @@ async function login(username, password) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(loginData),
-      credentials: "include", // Ensures cookies are sent with the request
+      credentials: "include",
     });
 
     if (response.ok) {
@@ -18,12 +19,11 @@ async function login(username, password) {
 
       if (contentType && contentType.includes("application/json")) {
         const data = await response.json();
-        console.log("Login successful", data); // Logs the JSON response
+        console.log("Login successful", data);
 
         // Store JWT token to process requests
         localStorage.setItem("jwtToken", data.token);
 
-        // Return the response data for further use
         return data;
       } else {
         throw new Error("Unexpected response type");
@@ -41,7 +41,7 @@ async function login(username, password) {
 // Function to log out and invalidate the JWT token
 async function logout() {
   try {
-    const token = localStorage.getItem("jwtToken"); // Retrieve the JWT token from localStorage
+    const token = localStorage.getItem("jwtToken");
 
     if (!token) {
       throw new Error("No JWT token found for logout.");
@@ -51,9 +51,9 @@ async function logout() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Pass the JWT token in the Authorization header
+        Authorization: `Bearer ${token}`,
       },
-      credentials: "include", // Ensure cookies are included
+      credentials: "include",
     });
 
     if (!response.ok) {
@@ -61,7 +61,6 @@ async function logout() {
     }
 
     console.log("Successfully logged out");
-    // Clear the JWT token from localStorage after successful logout
     localStorage.removeItem("jwtToken");
 
     return response;
@@ -83,9 +82,9 @@ async function getRecentOrders() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+        Authorization: `Bearer ${token}`,
       },
-      credentials: "include", // Include credentials for authenticated requests
+      credentials: "include",
     });
 
     if (!response.ok) {
@@ -110,24 +109,22 @@ async function completeOrder(orderId) {
     }
 
     const response = await fetch(`${BASE_URL}/orders/complete/${orderId}`, {
-      method: "POST", // Change this from PUT to POST
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+        Authorization: `Bearer ${token}`,
       },
-      credentials: "include", // Include credentials for authenticated requests
+      credentials: "include",
     });
 
     if (!response.ok) {
       throw new Error("Failed to complete the order");
     }
 
-    const responseText = await response.text(); // Use text() to get plain text response
+    const responseText = await response.text();
+    console.log(responseText);
 
-    // Log or handle the plain text response
-    console.log(responseText); // Logs the message returned by the backend
-
-    return responseText; // Return the plain text response if needed
+    return responseText;
   } catch (error) {
     console.error("Error completing order:", error);
     throw error;
@@ -147,27 +144,26 @@ async function deleteOrder(orderId) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+        Authorization: `Bearer ${token}`,
       },
-      credentials: "include", // Include credentials for authenticated requests
+      credentials: "include",
     });
 
     if (!response.ok) {
       throw new Error("Failed to delete the order");
     }
 
-    const responseText = await response.text(); // Use text() to get plain text response
+    const responseText = await response.text();
+    console.log(responseText);
 
-    // Log or handle the plain text response
-    console.log(responseText); // Logs the message returned by the backend
-
-    return responseText; // Return the plain text response if needed
+    return responseText;
   } catch (error) {
     console.error("Error deleting order:", error);
     throw error;
   }
 }
 
+// Function to fetch completed orders
 async function getCompletedOrders() {
   try {
     const token = localStorage.getItem("jwtToken");
@@ -180,9 +176,9 @@ async function getCompletedOrders() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+        Authorization: `Bearer ${token}`,
       },
-      credentials: "include", // Include credentials for authenticated requests
+      credentials: "include",
     });
 
     if (!response.ok) {
@@ -197,8 +193,9 @@ async function getCompletedOrders() {
   }
 }
 
+// Function to upload images
 async function uploadImages(event) {
-  event.preventDefault(); // Prevent form from submitting the traditional way
+  event.preventDefault();
   const uploadForm = document.getElementById("upload-images-form");
   const formData = new FormData(uploadForm);
 
@@ -216,25 +213,64 @@ async function uploadImages(event) {
     }
 
     const responseJson = await response.json();
-
-    // Get image paths from the response
     const topImageUrl = responseJson.topImagePath;
     const sideImageUrl = responseJson.sideImagePath;
 
-    // Set the hidden input fields with the image URLs
     document.getElementById("topImageUrl").value = topImageUrl;
     document.getElementById("sideImageUrl").value = sideImageUrl;
 
-    // Log the hidden fields to confirm they are set correctly
     console.log("Top Image URL:", document.getElementById("topImageUrl").value);
     console.log(
       "Side Image URL:",
       document.getElementById("sideImageUrl").value
     );
 
-    // Enable the "Add Item" form submit button or proceed with the next steps
     document.querySelector(
       "#add-item-form button[type='submit']"
+    ).disabled = false;
+  } catch (error) {
+    console.error("Error uploading images:", error);
+    alert("Error uploading images: " + error.message);
+  }
+}
+
+// Function to upload edited images
+async function uploadEditImages(event) {
+  event.preventDefault();
+  const uploadForm = document.getElementById("edit-upload-images-form");
+  const formData = new FormData(uploadForm);
+
+  try {
+    const response = await fetch(`${BASE_URL}/images/upload`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const responseText = await response.text();
+      throw new Error(
+        `Failed to upload images: ${response.statusText}. Response: ${responseText}`
+      );
+    }
+
+    const responseJson = await response.json();
+    const topImageUrl = responseJson.topImagePath;
+    const sideImageUrl = responseJson.sideImagePath;
+
+    document.getElementById("edit-topImageUrl").value = topImageUrl;
+    document.getElementById("edit-sideImageUrl").value = sideImageUrl;
+
+    console.log(
+      "Top Image URL:",
+      document.getElementById("edit-topImageUrl").value
+    );
+    console.log(
+      "Side Image URL:",
+      document.getElementById("edit-sideImageUrl").value
+    );
+
+    document.querySelector(
+      "#edit-product-form button[type='submit']"
     ).disabled = false;
   } catch (error) {
     console.error("Error uploading images:", error);
@@ -251,7 +287,7 @@ async function createProduct(productData) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Include JWT token in Authorization header
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(productData),
     });
@@ -261,7 +297,7 @@ async function createProduct(productData) {
     }
 
     const result = await response.json();
-    return result; // Return the created product
+    return result;
   } catch (error) {
     console.error("Error creating product:", error);
     throw error;
@@ -281,20 +317,170 @@ async function getProducts() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Include JWT token in Authorization header
+        Authorization: `Bearer ${token}`,
       },
-      credentials: "include", // Include credentials for authenticated requests
+      credentials: "include",
     });
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
 
-    const products = await response.json(); // Parse the response to get product data
-    return products; // Return the list of products
+    const products = await response.json();
+    return products;
   } catch (error) {
     console.error("Error fetching products:", error);
-    return []; // Return an empty array if there is an error
+    return [];
+  }
+}
+
+// Function to update a product
+async function updateProduct(productId, updatedData) {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/products/${productId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update product");
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error updating product:", error);
+    throw error;
+  }
+}
+
+// Function to delete a product
+async function deleteProduct(productId) {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/products/${productId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      const responseText = await response.text();
+      throw new Error(`Failed to delete product: ${responseText}`);
+    }
+
+    return { message: "Product deleted successfully" };
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    throw error;
+  }
+}
+
+// Function to fetch a product by ID
+async function getProductById(productId) {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/products/${productId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch product");
+    }
+
+    const product = await response.json();
+    console.log("Fetched product:", product);
+    return product;
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null;
+  }
+}
+
+// Function to fetch category by ID
+async function getCategoryById(categoryId) {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/categories/${categoryId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch category");
+    }
+
+    const category = await response.json();
+    return category;
+  } catch (error) {
+    console.error("Error fetching category:", error);
+    return null;
+  }
+}
+
+// Function to fetch all categories
+async function getCategories() {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}/categories`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch categories");
+    }
+
+    const categories = await response.json();
+    return categories;
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    return [];
   }
 }
 
@@ -306,7 +492,13 @@ export {
   completeOrder,
   deleteOrder,
   uploadImages,
+  uploadEditImages,
   createProduct,
   getCompletedOrders,
   getProducts,
+  updateProduct,
+  deleteProduct,
+  getProductById,
+  getCategoryById,
+  getCategories,
 };

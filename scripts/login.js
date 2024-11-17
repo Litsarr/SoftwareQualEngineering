@@ -7,23 +7,22 @@ export async function validateLogin() {
   const messageElement = document.getElementById("message");
 
   try {
-    // Call login function from api.js
     const response = await login(username, password);
 
     if (response && response.token) {
-      // If the response contains a valid JWT token, show success message
+      // Show success message and redirect to the dashboard
       messageElement.style.color = "green";
       messageElement.textContent = "Login successful!";
-
-      // Redirect to the dashboard after a short delay
       setTimeout(() => {
-        window.location.href = "dashboard.html"; // Redirect to your dashboard or homepage
+        window.location.href = "dashboard.html";
       }, 1000);
     } else {
+      // Show error message for invalid credentials
       messageElement.style.color = "red";
       messageElement.textContent = "Invalid username or password.";
     }
   } catch (error) {
+    // Handle login failure
     console.error("Error during login:", error);
     messageElement.style.color = "red";
     messageElement.textContent = "Login failed. Please try again later.";

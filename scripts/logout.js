@@ -1,16 +1,14 @@
 import { logout } from "./api.js";
 
+// Function to handle user logout
 export async function handleLogout() {
   try {
-    // Send logout request
-    await logout();
+    await logout(); // Send logout request
 
-    // Clear local storage or any session data related to the user
-    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("jwtToken"); // Clear local storage
 
-    // Redirect the user to the login page
-    window.location.href = "admin.html";
+    window.location.href = "admin.html"; // Redirect to login page
   } catch (error) {
-    console.error("Logout failed", error);
+    console.error("Logout failed", error); // Log any errors
   }
 }
