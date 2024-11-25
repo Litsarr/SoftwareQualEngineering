@@ -182,10 +182,12 @@
  
 <script type="module">
   console.log('Script loaded');
-  import { displayProductsByCategory } from '../scripts/products.js';
+  import { displayProductsByCategory, createOrUpdateCart } from '../scripts/products.js';
 
   document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOMContentLoaded event fired');
+    await createOrUpdateCart(); // Create or update the cart when the page loads
+
     const categoryMappings = {
       "Islander Classics": { id: 1, section: "classic-product-cards-row" },
       "Kids": { id: 4, section: "kids-product-cards-row" },

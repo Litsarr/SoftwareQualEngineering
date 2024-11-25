@@ -9,6 +9,8 @@ import {
   getCategories,
   uploadEditImages,
   getProductsByCategory,
+  createOrUpdateCart,
+  addItemToCart,
 } from "./api.js";
 
 // Function to dynamically add size and stock input fields
@@ -337,6 +339,7 @@ async function displayProductsByCategory(categoryId, sectionId) {
         console.log(`Rendering product: ${product.name}`);
         const productCard = document.createElement("div");
         productCard.classList.add("product-card"); // Add the product-card class
+        productCard.setAttribute("data-product-id", product.id); // Set the product ID
         productCard.innerHTML = `
           <div class="content">
             <img src="${product.imageSideUrl}" alt="${product.name}">
@@ -359,13 +362,75 @@ async function displayProductsByCategory(categoryId, sectionId) {
   }
 }
 
+// Function to handle redirection to the individual product page
+function redirectToProductPage(productId) {
+  window.location.href = `/pages/product.html?id=${productId}`;
+}
+
+// Function to load product details on the individual product page
+async function loadProductDetails() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+
+  if (!productId) {
+    console.error("Product ID not found in URL");
+    return;
+  }
+
+  try {
+    const product = await getProductById(productId);
+    if (!product) {
+      console.error("Product not found");
+      return;
+    }
+
+    document.getElementById("product-name").textContent = product.name;
+    document.getElementById("product-description").textContent =
+      product.description;
+    document.getElementById(
+      "product-price"
+    ).textContent = `$${product.price.toFixed(2)}`;
+    document.getElementById("product-category").textContent =
+      product.category.name;
+    document.getElementById("product-image-top").src = product.imageTopUrl;
+    document.getElementById("product-image-side").src = product.imageSideUrl;
+    document.getElementById("product-sizes").textContent = formatSizes(
+      product.sizes
+    );
+
+    // Populate size options
+    const sizeSelect = document.getElementById("size-select");
+    sizeSelect.innerHTML = ""; // Clear existing options
+    Object.keys(product.sizes).forEach((size) => {
+      const option = document.createElement("option");
+      option.value = size;
+      option.textContent = size;
+      sizeSelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Error loading product details:", error);
+  }
+}
+
+// Add event listener for add to cart buttons
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("add-to-cart-btn")) {
+    const productId = event.target.closest(".product-card").dataset.productId;
+    redirectToProductPage(productId);
+  }
+});
+
 // Initialize product display when the page loads
 window.addEventListener("DOMContentLoaded", displayProducts);
 
+// Export the loadProductDetails and createOrUpdateCart functions for use in the product page
 export {
   addSize,
   addEditSize,
   displayProducts,
   populateCategories,
   displayProductsByCategory,
+  loadProductDetails,
+  createOrUpdateCart,
+  addItemToCart,
 };

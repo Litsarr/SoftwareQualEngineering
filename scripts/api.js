@@ -308,18 +308,11 @@ async function createProduct(productData) {
 
 // Function to fetch all products
 async function getProducts() {
-  const token = localStorage.getItem("jwtToken");
-
-  if (!token) {
-    throw new Error("No JWT token found");
-  }
-
   try {
     const response = await fetch(`${BASE_URL}/products`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       credentials: "include",
     });
@@ -338,12 +331,6 @@ async function getProducts() {
 
 // Function to fetch products by category ID
 async function getProductsByCategory(categoryId) {
-  const token = localStorage.getItem("jwtToken");
-
-  if (!token) {
-    throw new Error("No JWT token found");
-  }
-
   try {
     console.log(
       `Making API call to fetch products for category ID: ${categoryId}`
@@ -354,7 +341,6 @@ async function getProductsByCategory(categoryId) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
       }
@@ -434,18 +420,11 @@ async function deleteProduct(productId) {
 
 // Function to fetch a product by ID
 async function getProductById(productId) {
-  const token = localStorage.getItem("jwtToken");
-
-  if (!token) {
-    throw new Error("No JWT token found");
-  }
-
   try {
     const response = await fetch(`${BASE_URL}/products/${productId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       credentials: "include",
     });
@@ -465,18 +444,11 @@ async function getProductById(productId) {
 
 // Function to fetch category by ID
 async function getCategoryById(categoryId) {
-  const token = localStorage.getItem("jwtToken");
-
-  if (!token) {
-    throw new Error("No JWT token found");
-  }
-
   try {
     const response = await fetch(`${BASE_URL}/categories/${categoryId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       credentials: "include",
     });
@@ -495,18 +467,11 @@ async function getCategoryById(categoryId) {
 
 // Function to fetch all categories
 async function getCategories() {
-  const token = localStorage.getItem("jwtToken");
-
-  if (!token) {
-    throw new Error("No JWT token found");
-  }
-
   try {
     const response = await fetch(`${BASE_URL}/categories`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       credentials: "include",
     });
@@ -520,6 +485,55 @@ async function getCategories() {
   } catch (error) {
     console.error("Error fetching categories:", error);
     return [];
+  }
+}
+
+// Function to create or update the cart based on the session ID
+async function createOrUpdateCart() {
+  try {
+    const response = await fetch(`${BASE_URL}/cart`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to create or update cart");
+    }
+
+    const cart = await response.json();
+    console.log("Cart created or updated:", cart);
+    return cart;
+  } catch (error) {
+    console.error("Error creating or updating cart:", error);
+    throw error;
+  }
+}
+
+// Function to add an item to the cart
+async function addItemToCart(productId, size, quantity) {
+  try {
+    const response = await fetch(`${BASE_URL}/cart/addItem`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ productId, size, quantity }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add item to cart");
+    }
+
+    const updatedCart = await response.json();
+    console.log("Item added to cart:", updatedCart);
+    return updatedCart;
+  } catch (error) {
+    console.error("Error adding item to cart:", error);
+    throw error;
   }
 }
 
@@ -541,4 +555,6 @@ export {
   getProductById,
   getCategoryById,
   getCategories,
+  createOrUpdateCart,
+  addItemToCart,
 };

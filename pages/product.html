@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/pages/product.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <section id="header">
+        <a href="/"><img src="/img/logo.png" class="logo" alt=""></a>
+        <div class="navbar-items">
+            <ul id="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="cart-img">
+                    <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                </div>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section id="product-details">
+        <div class="product-images">
+            <img id="product-image-top" src="" alt="Top Image">
+            <img id="product-image-side" src="" alt="Side Image">
+        </div>
+        <div class="product-info">
+            <h1 id="product-name"></h1>
+            <p id="product-description"></p>
+            <p id="product-price"></p>
+            <p id="product-category"></p>
+            <p id="product-sizes"></p>
+            <label for="size-select">Size:</label>
+            <select id="size-select">
+                <!-- Options will be populated dynamically -->
+            </select>
+            <label for="quantity-input">Quantity:</label>
+            <input type="number" id="quantity-input" value="1" min="1">
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </section>
+
+    <script type="module">
+        import { loadProductDetails, addItemToCart } from '../scripts/products.js';
+
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+
+        document.querySelector('.add-to-cart-btn').addEventListener('click', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const size = document.getElementById('size-select').value;
+            const quantity = parseInt(document.getElementById('quantity-input').value);
+
+            try {
+                await addItemToCart(productId, size, quantity);
+                alert('Item added to cart successfully!');
+            } catch (error) {
+                console.error('Error adding item to cart:', error);
+                alert('Failed to add item to cart. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
