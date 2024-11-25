@@ -104,442 +104,38 @@
   <img id="classic-banner" class="classic-banner" src="/img/banners/classic-banner.png">
 
 
-  <!-- Classic Product Cards Row 1 -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        fetch('/api/products') // Adjust the URL as necessary
-            .then(response => response.json())
-            .then(products => {
-                const productsSection = document.getElementById('classic-product-cards-row-1');
-                products.forEach(product => {
-                    const productCard = document.createElement('div');
-                    productCard.classList.add('classic-products');
-                    productCard.innerHTML = `
-                        <div class="content">
-                            <img src="/img/${product.imageSide}" alt="${product.name}">
-                            <h3>CLASSICS</h3>
-                            <p>${product.name}</p>
-                            <h4>P${product.price}</h4>
-                            <div class="overlay">
-                                <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    `;
-                    productsSection.appendChild(productCard);
-                });
-            })
-            .catch(error => console.error('Error fetching products:', error));
-    });
-</script>
-
-  <!-- Classic Product Cards Row 2 -->
-   <section id="classic-product-cards-row-2">
-    <div id="classic-product-5" class="classic-products">
-      <div class="content">
-          <img src="/img/products/classics/islander-cool.webp">
-          <h3>CLASSICS</h3>
-          <p>Islander Cool</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="classic-product-6" class="classic-products">
-      <div class="content">
-          <img src="/img/products/classics/islander-chill.webp">
-          <h3>CLASSICS</h3>
-          <p>Islander Chill</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="classic-product-7" class="classic-products">
-      <div class="content">
-          <img src="/img/products/classics/islander-red.webp">
-          <h3>CLASSICS</h3>
-          <p>Islander Red</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Classic Product Cards Row -->
+  <section id="classic-product-cards-row" class="product-cards-row"></section>
 
 
   <!-- Women Product Banner -->
   <img id="women-banner" class="women-banner" src="/img/banners/women-banner.png">
 
-    <!-- Women Product Cards Row 1 -->
-  <section id="women-product-cards-row-1">
-    <div id="women-product-1" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-allure.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Amaryllis</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="women-product-2" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-amarylis.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Eloisa</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="women-product-3" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-aqua.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Aqua</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="women-product-4" class="women-products">
-    <div class="content">
-          <img src="/img/products/women/islander-eloisa.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Peach</p>
-          <h4>P430.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Women Product Cards Row -->
+  <section id="women-product-cards-row" class="product-cards-row"></section>
 
  
-  <!-- Women Product Cards Row 1 -->
-  <section id="women-product-cards-row-2">
-    <div id="women-product-1" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-green.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Lavender</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="women-product-2" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-peach.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Emery</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="women-product-3" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-soft.webp">
-          <h3>WOMEN</h3>
-          <p>Islander Bondi</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="women-product-4" class="women-products">
-      <div class="content">
-          <img src="/img/products/women/islander-sikat.webp">
-          <h3>WOMEN </h3>
-          <p>Islander Sikat</p>
-          <h4>P430.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Kids Banner Image -->
   <img id="kids-banner" class="kids-banner" src="/img/banners/kids-banner.png">
   <h3 class="kids-title">TODDLERS SECTION</h3>
 
 
-   <!-- Kids Product Cards Row 1 -->
-  <section id="kids-product-cards-row-1">
-    <div id="kids-product-1" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/toddlers/islander-binky.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Binky</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="kids-product-2" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/toddlers/islander-elite.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Elite</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-3" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/toddlers/islander-benz.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Benz</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-4" class="kids-products">
-    <div class="content">
-          <img src="/img/products/kids/toddlers/islander-binky2.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Binky</p>
-          <h4>P430.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-   <!-- Kids Product Cards Row 2 -->
-  <section id="kids-product-cards-row-2">
-    <div id="kids-product-5" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/toddlers/islander-whx.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander WHX</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="kids-product-6" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/toddlers/islander-hybridbx.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Hybrid BX</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-7" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/toddlers/islander-hybridbx.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Hybrid AX</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-8" class="kids-products">
-    <div class="content">
-          <img src="/img/products/kids/toddlers/islander-binky3.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Binky 7</p>
-          <h4>P430.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
+   <!-- Kids Product Cards Row -->
+  <section id="kids-product-cards-row" class="product-cards-row"></section>
 
   <h3 class="kids-title">KIDS SECTION</h3>
-
-  <!-- Kids Product Cards Row 3 -->
-  <section id="kids-product-cards-row-3">
-    <div id="kids-product-9" class="kids-products">
-      <div class="content">
-          <img src="/img/products/kids/kids/islander-peerax.webp">
-          <h3>KIDS & TODDLERS</h3>
-          <p>Islander Peer AX</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="kids-product-10" class="kids-products">
-      <div class="content">
-        <img src="/img/products/kids/kids/islander-suzie.webp">
-        <h3>KIDS & TODDLERS</h3>
-          <p>Islander Suzie CX</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-11" class="kids-products">
-      <div class="content">
-        <img src="/img/products/kids/kids/islander-noblecx.webp">
-        <h3>KIDS & TODDLERS</h3>
-          <p>Islander Noble CX</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-12" class="kids-products">
-    <div class="content">
-      <img src="/img/products/kids/kids/islander-babybs.webp">
-      <h3>KIDS & TODDLERS</h3>
-          <p>Islander Baby BS</p>
-          <h4>P430.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kids Product Cards Row 4 -->
-  <section id="kids-product-cards-row-4">
-    <div id="kids-product-13" class="kids-products">
-      <div class="content">
-        <img src="/img/products/kids/kids/islander-soft.webp">
-        <h3>KIDS & TODDLERS</h3>
-          <p>Islander Soft BX</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="kids-product-14" class="kids-products">
-      <div class="content">
-        <img src="/img/products/kids/kids/islander-great.webp">
-        <h3>KIDS & TODDLERS</h3>
-          <p>Islander Great AX</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-15" class="kids-products">
-      <div class="content">
-        <img src="/img/products/kids/kids/islander-benz23.webp">
-        <h3>KIDS & TODDLERS</h3>
-          <p>Islander Benz 23</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="kids-product-16" class="kids-products">
-    <div class="content">
-      <img src="/img/products/kids/kids/islander-alboax.webp">
-      <h3>KIDS & TODDLERS</h3>
-          <p>Islander Albo AX</p>
-          <h4>P430.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Outdoor Banner Image -->
   <img id="outdoor-banner" class="outdoor-banner" src="/img/banners/outdoor-banner.png">
 
-   <!-- OUtdoor Product Cards Row 1 -->
-   <section id="outdoor-product-cards-row-1">
-    <div id="outdoor-product-1" class="outdoor-products">
-      <div class="content">
-          <img src="/img/products/outdoor/islander-spider.webp">
-          <h3>OUTDOORS</h3>
-          <p>Islander Binky</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="outdoor-product-2" class="outdoor-products">
-      <div class="content">
-        <img src="/img/products/outdoor/islander-frank.webp">
-        <h3>OUTDOORS</h3>
-          <p>Islander Elite</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div id="outdoor-product-3" class="outdoor-products">
-      <div class="content">
-        <img src="/img/products/outdoor/islander-axe.webp">
-        <h3>OUTDOORS</h3>
-          <p>Islander Benz</p>
-          <h4>P400.00</h4>
-          <div class="overlay">
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-   <!-- Kids Product Cards Row 2 -->
-  <section id="outdoor-product-cards-row-2">
-    <div id="outdoor-product-4" class="outdoor-products">
-      <div class="content">
-        <img src="/img/products/outdoor/islander-baron.webp">
-        <h3>OUTDOORS</h3>
-          <p>Islander WHX</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-    <div id="outdoor-product-5" class="outdoor-products">
-      <div class="content">
-        <img src="/img/products/outdoor/islander-carano.webp">
-        <h3>OUTDOORS</h3>
-          <p>Islander WHX</p>
-          <h4>P450.00</h4>
-          <div class="overlay">
-              <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-      </div>
-    </div>
-  </section>
+   <!-- Outdoor Product Cards Row -->
+   <section id="outdoor-product-cards-row" class="product-cards-row"></section>
 
   <!-- Promotion Banner Image -->
   <img id="promo-banner" class="promo-banner" src="/img/banners/promo-banner.png">
 
 
-  <section id="footer">
+  <section id="footer"></section>
     <div class="footer-whole-container">
       <div class="footer-logo">
         <img src="/img/footer/logo-footer.png" id="logo-footer">
@@ -584,8 +180,26 @@
 
 
  
-<script src="script.js"></script>
+<script type="module">
+  console.log('Script loaded');
+  import { displayProductsByCategory } from '../scripts/products.js';
 
-  </div>
+  document.addEventListener('DOMContentLoaded', async function() {
+    console.log('DOMContentLoaded event fired');
+    const categoryMappings = {
+      "Islander Classics": { id: 1, section: "classic-product-cards-row" },
+      "Kids": { id: 4, section: "kids-product-cards-row" },
+      "Women": { id: 3, section: "women-product-cards-row" },
+      "Islander Outdoors": { id: 2, section: "outdoor-product-cards-row" }
+    };
+
+    for (const category in categoryMappings) {
+      const { id, section } = categoryMappings[category];
+      console.log(`Displaying products for category: ${category}`);
+      await displayProductsByCategory(id, section);
+    }
+  });
+</script>
+
 </body>
 </html>

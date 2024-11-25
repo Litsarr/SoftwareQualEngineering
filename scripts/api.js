@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:8080"; // Backend API URL
+console.log("api.js script loaded");
+
+const BASE_URL = "http://localhost:8081"; // Backend API URL
 
 // Function to log in and receive a JWT token
 async function login(username, password) {
@@ -334,6 +336,43 @@ async function getProducts() {
   }
 }
 
+// Function to fetch products by category ID
+async function getProductsByCategory(categoryId) {
+  const token = localStorage.getItem("jwtToken");
+
+  if (!token) {
+    throw new Error("No JWT token found");
+  }
+
+  try {
+    console.log(
+      `Making API call to fetch products for category ID: ${categoryId}`
+    );
+    const response = await fetch(
+      `${BASE_URL}/products/category/${categoryId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: "include",
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch products by category");
+    }
+
+    const products = await response.json();
+    console.log(`API response for category ID ${categoryId}:`, products);
+    return products;
+  } catch (error) {
+    console.error("Error fetching products by category:", error);
+    return [];
+  }
+}
+
 // Function to update a product
 async function updateProduct(productId, updatedData) {
   const token = localStorage.getItem("jwtToken");
@@ -496,6 +535,7 @@ export {
   createProduct,
   getCompletedOrders,
   getProducts,
+  getProductsByCategory,
   updateProduct,
   deleteProduct,
   getProductById,

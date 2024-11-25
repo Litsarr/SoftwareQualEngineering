@@ -1,3 +1,5 @@
+console.log("products.js script loaded");
+
 import {
   createProduct,
   getProducts,
@@ -6,11 +8,16 @@ import {
   deleteProduct,
   getCategories,
   uploadEditImages,
+  getProductsByCategory,
 } from "./api.js";
 
 // Function to dynamically add size and stock input fields
 async function addSize() {
   const sizesContainer = document.getElementById("sizes-container");
+  if (!sizesContainer) {
+    console.error("sizes-container element not found");
+    return;
+  }
   const sizeBlock = document.createElement("div");
   sizeBlock.classList.add("size-block");
   sizeBlock.innerHTML = `
@@ -23,6 +30,10 @@ async function addSize() {
 // Function to dynamically add size and stock input fields in the edit form
 async function addEditSize() {
   const sizesContainer = document.getElementById("edit-sizes-container");
+  if (!sizesContainer) {
+    console.error("edit-sizes-container element not found");
+    return;
+  }
   const sizeBlock = document.createElement("div");
   sizeBlock.classList.add("size-block");
   sizeBlock.innerHTML = `
@@ -54,9 +65,9 @@ async function populateCategories() {
 }
 
 // Handle form submission to create a new product
-document
-  .getElementById("add-item-form")
-  .addEventListener("submit", async function (event) {
+const addItemForm = document.getElementById("add-item-form");
+if (addItemForm) {
+  addItemForm.addEventListener("submit", async function (event) {
     event.preventDefault(); // Prevent form submission
 
     const formData = new FormData(this);
@@ -88,11 +99,14 @@ document
       alert("Failed to create product. Please try again.");
     }
   });
+} else {
+  console.error("add-item-form element not found");
+}
 
 // Handle form submission to update a product
-document
-  .getElementById("edit-product-form")
-  .addEventListener("submit", async function (event) {
+const editProductForm = document.getElementById("edit-product-form");
+if (editProductForm) {
+  editProductForm.addEventListener("submit", async function (event) {
     event.preventDefault(); // Prevent form submission
 
     const formData = new FormData(this);
@@ -137,18 +151,38 @@ document
       alert("Failed to update product. Please try again.");
     }
   });
+} else {
+  console.error("edit-product-form element not found");
+}
 
 // Handle image upload for the edit form
-document
-  .getElementById("edit-upload-button")
-  .addEventListener("click", async function (event) {
+const editUploadButton = document.getElementById("edit-upload-button");
+if (editUploadButton) {
+  editUploadButton.addEventListener("click", async function (event) {
     event.preventDefault(); // Prevent form submission
     await uploadEditImages(event);
   });
+} else {
+  console.error("edit-upload-button element not found");
+}
+
+// Fetch and display products
+async function displayProducts() {
+  try {
+    const products = await getProducts(); // Fetch products from API
+    renderProducts(products); // Render products in the table
+  } catch (error) {
+    console.error("Error displaying products:", error);
+  }
+}
 
 // Render products in the table
 function renderProducts(products) {
   const tableBody = document.querySelector("#items-table tbody");
+  if (!tableBody) {
+    console.error("items-table tbody element not found");
+    return;
+  }
   tableBody.innerHTML = ""; // Clear the table before adding new products
 
   products.forEach((product) => {
@@ -282,17 +316,56 @@ function createActionsCell(productId) {
   return actionsCell;
 }
 
-// Fetch and display products
-async function displayProducts() {
+// Function to fetch and display products by category
+async function displayProductsByCategory(categoryId, sectionId) {
   try {
-    const products = await getProducts(); // Fetch products from API
-    renderProducts(products); // Render products in the table
+    console.log(`Fetching products for category ID: ${categoryId}`);
+    const products = await getProductsByCategory(categoryId);
+    console.log(`Products fetched for category ID ${categoryId}:`, products);
+    const section = document.getElementById(sectionId);
+    if (!section) {
+      console.error(`Section with ID ${sectionId} not found`);
+      return;
+    }
+    section.innerHTML = ""; // Clear the section before adding new products
+
+    if (products.length === 0) {
+      console.log(`No products found for category ID ${categoryId}`);
+      section.innerHTML = "<p>No products available in this category.</p>";
+    } else {
+      products.forEach((product) => {
+        console.log(`Rendering product: ${product.name}`);
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card"); // Add the product-card class
+        productCard.innerHTML = `
+          <div class="content">
+            <img src="${product.imageSideUrl}" alt="${product.name}">
+            <h3>${product.category.name.toUpperCase()}</h3>
+            <p>${product.name}</p>
+            <h4>P${product.price}</h4>
+            <div class="overlay">
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+        `;
+        section.appendChild(productCard);
+      });
+    }
   } catch (error) {
-    console.error("Error displaying products:", error);
+    console.error(
+      `Error displaying products for category ${categoryId}:`,
+      error
+    );
   }
 }
 
 // Initialize product display when the page loads
 window.addEventListener("DOMContentLoaded", displayProducts);
 
-export { addSize, addEditSize, displayProducts, populateCategories };
+export {
+  addSize,
+  addEditSize,
+  displayProducts,
+  populateCategories,
+  displayProductsByCategory,
+};
