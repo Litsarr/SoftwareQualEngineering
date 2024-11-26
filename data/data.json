@@ -1,0 +1,2579 @@
+[
+  {
+    "id": 1,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander Black",
+      "Islander 1020LK (Black) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-black/1.webp",
+      "./assets/images/islander-classics/islander-black/2.webp",
+      "./assets/images/islander-classics/islander-black/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 400,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander Gray",
+      "Islander 1020LC (Light Gray) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-gray/1.webp",
+      "./assets/images/islander-classics/islander-gray/2.webp",
+      "./assets/images/islander-classics/islander-gray/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 450,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander Tan",
+      "Islander 1020LA (Tan) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-tan/1.webp",
+      "./assets/images/islander-classics/islander-tan/2.webp",
+      "./assets/images/islander-classics/islander-tan/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 375,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander White",
+      "Islander 1058L (Blue / White) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-white/1.webp",
+      "./assets/images/islander-classics/islander-white/2.webp",
+      "./assets/images/islander-classics/islander-white/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 460,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander Cool",
+      "Islander 1077L (Black / Blue) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-cool/1.webp",
+      "./assets/images/islander-classics/islander-cool/2.webp",
+      "./assets/images/islander-classics/islander-cool/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 400,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander Chill",
+      "Islander 1075L (Black / Green) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-chill/1.webp",
+      "./assets/images/islander-classics/islander-chill/2.webp",
+      "./assets/images/islander-classics/islander-chill/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 460,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Islander Classics",
+    "subcategory": null,
+    "name": [
+      "Islander Red",
+      "Islander 1087LA (Red / Black) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "The classic Islander slipper was made for everyone. The silhouette has always been designed with comfort in mind alongside a style flexible for any fit. ",
+      "materials": [
+        "Molded EVA & Natural Rubber sole",
+        "Nylon Strap",
+        "Heel Height: 0.5in"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-classics/islander-red/1.webp",
+      "./assets/images/islander-classics/islander-red/2.webp",
+      "./assets/images/islander-classics/islander-red/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart.webp",
+    "basePrice": 460,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 460,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 460,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 460,
+        "quantity": 4
+      },
+      {
+        "size": 12,
+        "price": 565,
+        "quantity": 7
+      },
+      {
+        "size": 13,
+        "price": 565,
+        "quantity": 12
+      },
+      {
+        "size": 14,
+        "price": 565,
+        "quantity": 4
+      },
+      {
+        "size": 15,
+        "price": 565,
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Amaryllis ",
+      "Islander Amaryllis EL (Pink) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "Take summer with you wherever you go with this vibrant pair!",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-amar/1.webp",
+      "./assets/images/islander-women/islander-amar/2.webp",
+      "./assets/images/islander-women/islander-amar/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 335,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 365,
+        "quantity": 4
+      },
+      {
+        "size": 6,
+        "price": 365,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 365,
+        "quantity": 12
+      },
+      {
+        "size": 8,
+        "price": 365,
+        "quantity": 9
+      },
+      {
+        "size": 9,
+        "price": 365,
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Eloisa ",
+      "Islander Scoopy CL (Violet) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "Scoopy is designed for divine comfort and effortless style, these slippers are like a gentle hug for your every step.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-eloisa/1.webp",
+      "./assets/images/islander-women/islander-eloisa/2.webp",
+      "./assets/images/islander-women/islander-eloisa/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 209,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 209,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 209,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 209,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 209,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 209,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Scoopy Aqua ",
+      "Islander Scoopy BL (Aqua Blue) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "Scoppy is designed for divine comfort and effortless style, these slippers are like a gentle hug for your every step.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-scoopy/1.webp",
+      "./assets/images/islander-women/islander-scoopy/2.webp",
+      "./assets/images/islander-women/islander-scoopy/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 209,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 209,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 209,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 209,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 209,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 209,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Peach ",
+      "Islander Bondi CL (Purple) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "A perfect blend of durability, functionality, and chic design. Crafted for the modern woman, these slippers offer unmatched comfort and a splash of vibrant color to brighten up any day!",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-peach/1.webp",
+      "./assets/images/islander-women/islander-peach/2.webp",
+      "./assets/images/islander-women/islander-peach/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 379,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 379,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 379,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 379,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 379,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 379,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Lavender ",
+      "Islander Ella AL (Lilac) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "These plush wonders are crafted from the softest materials, ensuring a gentle embrace for your feet.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-lavender/1.webp",
+      "./assets/images/islander-women/islander-lavender/2.webp",
+      "./assets/images/islander-women/islander-lavender/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 209,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 209,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 209,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 209,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 209,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 209,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Emery ",
+      "Islander Emery AL (Blue) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "These plush wonders are crafted from the softest materials, ensuring a gentle embrace for your feet.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-emery/1.webp",
+      "./assets/images/islander-women/islander-emery/2.webp",
+      "./assets/images/islander-women/islander-emery/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 335,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 335,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 335,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 335,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 335,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 335,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Bondi ",
+      "Islander Eloisa CL (Fuchsia Pink) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "Designed for the contemporary woman who values both fashion and functionality, these slippers offer a vibrant range of colors and a resilient build that stands up to everyday wear.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-bondi/1.webp",
+      "./assets/images/islander-women/islander-bondi/2.webp",
+      "./assets/images/islander-women/islander-bondi/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 209,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 209,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 209,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 209,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 209,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 209,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "category": "Islander Women",
+    "subcategory": null,
+    "name": [
+      "Islander Sikat",
+      "Islander Sikat CL (Teal Blue) - Islander Slippers for Women"
+    ],
+    "description": {
+      "overview": "Step into luxury with our newly launched exclusive slipper collection, where style meets sophistication. Each pair is meticulously crafted to cradle your feet with every step, they provide the perfect blend of softness and support.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Rubber Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-women/islander-sikat/1.webp",
+      "./assets/images/islander-women/islander-sikat/2.webp",
+      "./assets/images/islander-women/islander-sikat/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 220,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 220,
+        "quantity": 5
+      },
+      {
+        "size": 6,
+        "price": 220,
+        "quantity": 1
+      },
+      {
+        "size": 7,
+        "price": 220,
+        "quantity": 8
+      },
+      {
+        "size": 8,
+        "price": 220,
+        "quantity": 11
+      },
+      {
+        "size": 9,
+        "price": 220,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Binky",
+      "Islander Baby AS (|Pink) - Islander Slippers for Kids and Toddlers"
+    ],
+    "description": {
+      "overview": "A playful 2-in-1 color design, perfect for little ones who love variety and fun.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-binky/1.webp",
+      "./assets/images/islander-toddlers/islander-binky/2.webp",
+      "./assets/images/islander-toddlers/islander-binky/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 239,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 239,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 239,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 239,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 239,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 239,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 239,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Elite",
+      "Islander Elite 21 MBX (Blue) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Elite 21 MBX (Blue) - Islander Slippers for Kids",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-elite/1.webp",
+      "./assets/images/islander-toddlers/islander-elite/2.webp",
+      "./assets/images/islander-toddlers/islander-elite/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 310,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 310,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 310,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 310,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 310,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 310,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 310,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Benz",
+      "Islander Benz 21 EX (White / Red) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Brighten up those tiny toes! ",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-benz/1.webp",
+      "./assets/images/islander-toddlers/islander-benz/2.webp",
+      "./assets/images/islander-toddlers/islander-benz/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 369,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 369,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 369,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 369,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 369,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 369,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 369,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Binky",
+      "Islander Binky 7 CS (Lavender) - Islander Slippers for Toddler"
+    ],
+    "description": {
+      "overview": "Islander Binky 7 CS (Lavender) - Islander Slippers for Toddler",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-purple/1.webp",
+      "./assets/images/islander-toddlers/islander-purple/2.webp",
+      "./assets/images/islander-toddlers/islander-purple/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 209,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 209,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 209,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 209,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 209,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 209,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 209,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander WHX",
+      "Islander Elite 21 WHX (White) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Elite21 WHX (White) - Islander Slippers for Kids",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-whx/1.webp",
+      "./assets/images/islander-toddlers/islander-whx/2.webp",
+      "./assets/images/islander-toddlers/islander-whx/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 310,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 310,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 310,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 310,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 310,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 310,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 310,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Hybrid BX",
+      "Islander Noble BX (Blue) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Noble BX (Blue) - Islander Slippers for Kids",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-hybrid/1.webp",
+      "./assets/images/islander-toddlers/islander-hybrid/2.webp",
+      "./assets/images/islander-toddlers/islander-hybrid/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 329,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 329,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 329,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 329,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 329,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 329,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 329,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Hybrid AX ",
+      "Islander Hybrid AX (Blue / White / Red) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Hybrid AX (Blue / White / Red) - Islander Slippers for Kids",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-red/1.webp",
+      "./assets/images/islander-toddlers/islander-red/2.webp",
+      "./assets/images/islander-toddlers/islander-red/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 429,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 429,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 429,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 429,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 429,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 429,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 429,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "category": "Children",
+    "subcategory": "Toddlers",
+    "name": [
+      "Islander Pink",
+      "Islander Binky 7 DS (Pink) - Islander Slippers for Toddlers"
+    ],
+    "description": {
+      "overview": "Islander Binky 7 DS (Pink) - Islander Slippers for Toddlers",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-toddlers/islander-pink/1.webp",
+      "./assets/images/islander-toddlers/islander-pink/2.webp",
+      "./assets/images/islander-toddlers/islander-pink/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 209,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 209,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 209,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 209,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 209,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 209,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 209,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Peer AX ",
+      "Islander Peer AX (Blue) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Introducing our cozy and vibrant Peer Kids designed to keep little feet comfy and stylish all day long!",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-peer/1.webp",
+      "./assets/images/islander-kids/islander-peer/2.webp",
+      "./assets/images/islander-kids/islander-peer/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 320,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 320,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 320,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 320,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 320,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 320,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 320,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Suzie CX ",
+      "Islander Suzie CX ( Lavender ) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Suzie CX ( Lavender ) - Islander Slippers for Kids",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-suzie/1.webp",
+      "./assets/images/islander-kids/islander-suzie/2.webp",
+      "./assets/images/islander-kids/islander-suzie/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 279,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 279,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 279,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 279,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 279,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 279,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 279,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Noble CX ",
+      "Islander Hybrid CX (Green / Yellow) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Hybrid CX (Green / Yellow) - Islander Slippers for Kids",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-green/1.webp",
+      "./assets/images/islander-kids/islander-green/2.webp",
+      "./assets/images/islander-kids/islander-green/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 429,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 429,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 429,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 429,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 429,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 429,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 429,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Baby BS ",
+      "Islander Baby BS (Blue) - Islander Slippers for Kids and Toddlers"
+    ],
+    "description": {
+      "overview": "Islander Baby BS (Blue) - Islander Slippers for Kids and Toddlers",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-baby/1.webp",
+      "./assets/images/islander-kids/islander-baby/2.webp",
+      "./assets/images/islander-kids/islander-baby/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 239,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 239,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 239,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 239,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 239,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 239,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 239,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Soft BX ",
+      "Islander Soft BX (Yellow) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Islander Soft BX (Yellow) - Islander Slippers for Kids. Introducing our Soft X Slippers, the perfect blend of fun and functionality for your little ones! Designed with both comfort and durability in mind, these slippers are ideal for everyday wear, from lounging around the house to quick trips outside.",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-yellow/1.webp",
+      "./assets/images/islander-kids/islander-yellow/2.webp",
+      "./assets/images/islander-kids/islander-yellow/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 165,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 165,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 165,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 165,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 165,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 165,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 165,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Great AX",
+      "Islander Great 1 AX (Black) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Crafted from high-quality, flexible rubber, these slippers feature a plush, cushioned footbed that gently cradles little feet with every step!",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-black/1.webp",
+      "./assets/images/islander-kids/islander-black/2.webp",
+      "./assets/images/islander-kids/islander-black/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 199,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 199,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 199,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 199,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 199,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 199,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 199,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Benz 23 ",
+      "Islander Benz 23 DX (Teal Blue) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Crafted from high-quality, flexible rubber, these slippers feature a plush, cushioned footbed that gently cradles little feet with every step!",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-teal/1.webp",
+      "./assets/images/islander-kids/islander-teal/2.webp",
+      "./assets/images/islander-kids/islander-teal/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 339,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 339,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 339,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 339,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 339,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 339,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 339,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "category": "Children",
+    "subcategory": "Kids",
+    "name": [
+      "Islander Albo AX",
+      "Islander Albo AX (Royal Blue) - Islander Slippers for Kids"
+    ],
+    "description": {
+      "overview": "Crafted from high-quality, flexible rubber, these slippers feature a plush, cushioned footbed that gently cradles little feet with every step!",
+      "materials": [
+        "EVA & Natural Rubber Sole",
+        "Nylon Strap",
+        "Heel Height: 0.2in / 0.6cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-kids/islander-blue/1.webp",
+      "./assets/images/islander-kids/islander-blue/2.webp",
+      "./assets/images/islander-kids/islander-blue/3.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-women.webp",
+    "basePrice": 339,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 1,
+        "price": 339,
+        "quantity": 5
+      },
+      {
+        "size": 2,
+        "price": 339,
+        "quantity": 1
+      },
+      {
+        "size": 3,
+        "price": 339,
+        "quantity": 8
+      },
+      {
+        "size": 4,
+        "price": 339,
+        "quantity": 11
+      },
+      {
+        "size": 5,
+        "price": 339,
+        "quantity": 12
+      },
+      {
+        "size": 6,
+        "price": 339,
+        "quantity": 12
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "category": "Islander Outdoors",
+    "subcategory": null,
+    "name": [
+      "Outdoors Spider ",
+      "Islander Outdoors Spider AL (Black / Red) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "Made for anytime and anywhere but absolutely perfect for those who crave for adventure. ",
+      "materials": [
+        "Arched EVA & Natural Rubber Sole",
+        "Heel Height: 0.3in / 0.7cm"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-outdoors/islander-spider/1.webp",
+      "./assets/images/islander-outdoors/islander-spider/2.webp",
+      "./assets/images/islander-outdoors/islander-spider/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-outdoor.webp",
+    "basePrice": 459,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 459,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 459,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 459,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 459,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 459,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 459,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 459,
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "category": "Islander Outdoors",
+    "subcategory": null,
+    "name": [
+      "Outdoors Frank ",
+      "Islander Frank BL (Black) - Islander Slippers"
+    ],
+    "description": {
+      "overview": "Made for anytime and anywhere but absolutely perfect for those who crave for adventure. ",
+      "materials": ["EVA & Natural Rubber Sole", "Nylon Strap"],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-outdoors/islander-frank/1.webp",
+      "./assets/images/islander-outdoors/islander-frank/2.webp",
+      "./assets/images/islander-outdoors/islander-frank/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-outdoor.webp",
+    "basePrice": 489,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 489,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 489,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 489,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 489,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 489,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 489,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 489,
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "category": "Islander Outdoors",
+    "subcategory": null,
+    "name": [
+      "Outdoors Axe  ",
+      "Islander Outdoors Axe BL (Black) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "Made for anytime and anywhere but absolutely perfect for those who crave for adventure. ",
+      "materials": [
+        "Arched EVA & Natural Rubber Sole",
+        "Fully Adjustable Straps"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-outdoors/islander-axe/1.webp",
+      "./assets/images/islander-outdoors/islander-axe/2.webp",
+      "./assets/images/islander-outdoors/islander-axe/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-outdoor.webp",
+    "basePrice": 770,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 770,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 770,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 770,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 770,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 770,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 770,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 770,
+        "quantity": 4
+      }
+    ]
+  },
+
+  {
+    "id": 35,
+    "category": "Islander Outdoors",
+    "subcategory": null,
+    "name": [
+      "Outdoors Baron",
+      "Islander Outdoors Baron AL (Blue) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "Made for anytime and anywhere but absolutely perfect for those who crave for adventure. ",
+      "materials": [
+        "Arched EVA & Natural Rubber Sole",
+        "Fully Adjustable Straps"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-outdoors/islander-blue/1.webp",
+      "./assets/images/islander-outdoors/islander-blue/2.webp",
+      "./assets/images/islander-outdoors/islander-blue/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-outdoor.webp",
+    "basePrice": 499,
+    "maxPrice": 565,
+    "stock": [
+      {
+        "size": 5,
+        "price": 499,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 499,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 499,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 499,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 499,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 499,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 499,
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "category": "Islander Outdoors",
+    "subcategory": null,
+    "name": [
+      "Outdoor Carano ",
+      "Islander Outdoors Axe BL (Black) - Islander Slippers for Men / Slippers for Women"
+    ],
+    "description": {
+      "overview": "Islander Carano DL (Red) - Islander Slippers for Women",
+      "materials": [
+        "Arched EVA & Natural Rubber Sole",
+        "Fully Adjustable Straps"
+      ],
+      "shippingRules": [
+        "Your orders are packed and scheduled for shipping within the same day, or next day at the latest.",
+        "Delivery lead time depends on the location and may take between 3-10 days",
+        "Once an order is picked up, we unfortunately do not have control of when it will be delivered. For any issues, feel free to send us a message and we’ll do our best to assist you."
+      ],
+      "returnsRules": [
+        "As Shopee does not offer exchange, Items may be returned and refunded within the allotted guarantee period. Send us a message for any concerns.",
+        "Please send us a photo of the item so we may assess the reason for the return/refund request"
+      ],
+      "sizing": "Please refer to our size chart. Measurements represented are from the product’s heel to toe. For a wider fit, we recommend going one size up."
+    },
+    "images": [
+      "./assets/images/islander-outdoors/islander-red/1.webp",
+      "./assets/images/islander-outdoors/islander-red/2.webp",
+      "./assets/images/islander-outdoors/islander-red/3.webp",
+      "./assets/images/measure.webp"
+    ],
+    "sizeChart": "./assets/images/size-chart-outdoor.webp",
+    "basePrice": 576,
+    "maxPrice": 590,
+    "stock": [
+      {
+        "size": 5,
+        "price": 576,
+        "quantity": 3
+      },
+      {
+        "size": 6,
+        "price": 576,
+        "quantity": 4
+      },
+      {
+        "size": 7,
+        "price": 576,
+        "quantity": 3
+      },
+      {
+        "size": 8,
+        "price": 576,
+        "quantity": 0
+      },
+      {
+        "size": 9,
+        "price": 770,
+        "quantity": 0
+      },
+      {
+        "size": 10,
+        "price": 576,
+        "quantity": 0
+      },
+      {
+        "size": 11,
+        "price": 576,
+        "quantity": 4
+      }
+    ]
+  }
+]

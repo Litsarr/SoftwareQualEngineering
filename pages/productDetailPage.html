@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Islander Slippers Product Page</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="./assets/js/productDetail.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="product-details-nav">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./assets/images/logo.png" alt="logo" />
+          </a>
+        </div>
+      </nav>
+      <div class="category">
+        <img alt="category" id="category-banner" />
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="flex">
+        <div class="image-gallery">
+          <!-- Main Image -->
+          <img id="main-image" alt="Main Image" />
+
+          <!-- Thumbnails -->
+          <div class="thumbnails"></div>
+        </div>
+
+        <div class="product-details">
+          <h1 class="product-title"></h1>
+          <p class="product-price"></p>
+
+          <div class="options">
+            <div class="size-select">
+              <label>Size</label>
+              <div id="size-buttons"></div>
+            </div>
+
+            <div class="quantity">
+              <label for="quantity">Quantity</label>
+              <div class="quantity-buttons">
+                <button
+                  class="minus"
+                  aria-label="Decrease"
+                  onclick="changeQuantity(-1)"
+                >
+                  &minus;
+                </button>
+                <input
+                  class="input-box"
+                  type="number"
+                  id="quantity"
+                  value="1"
+                  min="1"
+                  readonly
+                />
+                <button
+                  class="plus"
+                  aria-label="Increase"
+                  onclick="changeQuantity(1)"
+                >
+                  &plus;
+                </button>
+              </div>
+
+              <div id="available-quantity"></div>
+            </div>
+            <div id="max-quantity-message" style="display: none; color: red">
+              You have reached the maximum quantity available for this item.
+            </div>
+          </div>
+          <div class="add-to-cart">
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="description">
+        <h3>Description</h3>
+        <p id="description"></p>
+
+        <h4>Materials</h4>
+        <p id="materials"></p>
+
+        <h4>Shipping</h4>
+        <p id="shipping"></p>
+
+        <h4>Return/Refund</h4>
+        <p id="returnRefund"></p>
+
+        <img src="" alt="size chart" id="size-chart" />
+      </div>
+    </main>
+  </body>
+</html>

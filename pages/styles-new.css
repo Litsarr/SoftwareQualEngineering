@@ -1,0 +1,331 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* List and Link Styling */
+ul li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid rgb(227, 227, 227);
+  background: #fff;
+  color: #010101;
+  transition: all 0.2s;
+}
+
+button.selected {
+  border-color: #d0011b;
+  color: #d0011b;
+}
+
+button:hover {
+  border: 1px solid #d0011b;
+}
+
+button.out-of-stock {
+  background-color: #e0e0e0;
+  color: #a1a1a1;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+button.out-of-stock:hover {
+  background-color: #e0e0e0;
+  border-color: #ccc;
+}
+
+/* Header Styling */
+header nav {
+  background-color: #1f6eb3;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.product-details-nav {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+header nav ul li {
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-right: 1px solid #fff;
+}
+
+header nav ul li:nth-child(1),
+header nav ul li:nth-child(3) {
+  border-left: 1px solid #fff;
+}
+
+header nav ul li:nth-child(4) {
+  border-right: 1px solid #fff;
+}
+
+/* Islander Section */
+.islander-classics__container .banner,
+.islander-women__container .banner,
+.islander-kids__container .banner,
+.islander-outdoor__container .banner,
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.islander-classics__container .banner {
+  background: #d5eeef;
+}
+
+.islander-women__container .banner {
+  background: #9ccb58;
+}
+
+.islander-kids__container .banner {
+  background: #fcbd13;
+}
+
+.islander-outdoor__container .banner {
+  background: #356cb0;
+}
+
+.islander-classics__container .banner img,
+.islander-women__container .banner img,
+.islander-kids__container .banner img,
+.category img {
+  width: 27%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.islander-outdoor__container .banner img {
+  width: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Product Grid */
+.products__container,
+.products-women__container,
+.products-toddlers__container,
+.products-kids__container,
+.products-outdoors__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  margin: 0 12em;
+  row-gap: 3em;
+}
+
+.product__card {
+  text-align: center;
+  width: 70%;
+}
+
+.product__card h3 {
+  color: #272328;
+  margin: 7px 0;
+}
+
+.product__card img {
+  width: 100%;
+}
+
+/* Main Product Details */
+.container {
+  margin: 4em auto;
+  background-color: #fff;
+  max-width: 1200px;
+}
+
+#size-chart {
+  width: 60%;
+  margin: 1em auto 0 auto;
+}
+
+.flex {
+  display: flex;
+  gap: 4em;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 4em;
+}
+
+.description h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.description p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Product Image and Thumbnail Styling */
+.product-images {
+  flex: 1;
+}
+
+.product-images img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 8px;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.thumbnail:hover {
+  border-color: #d0011b;
+}
+
+.thumbnail.active {
+  border: 1px solid red;
+  border-radius: 4px;
+}
+
+/* Product Details Layout */
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.product-price {
+  color: #d0011b;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.size-select,
+.quantity {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.quantity-buttons,
+#size-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quantity button {
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 20px;
+  width: 30px;
+  height: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.input-box {
+  border: 1px solid #ddd;
+  font-size: 16px;
+  outline: none;
+  width: 45px;
+  text-align: center;
+  color: #d0011b;
+  font-weight: 600;
+}
+
+.input-box::-webkit-inner-spin-button,
+.input-box::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-to-cart button {
+  border: 1px solid #d0011b;
+  background: rgba(208, 1, 27, 0.08);
+  color: #d0011b;
+  width: 30%;
+}
+
+/* Main Image Styling */
+#main-image {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.image-gallery {
+  flex-basis: 50%;
+}
+
+.product-details {
+  flex-basis: 50%;
+}
