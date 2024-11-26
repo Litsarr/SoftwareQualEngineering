@@ -3,6 +3,8 @@ import {
   completeOrder,
   deleteOrder,
   getCompletedOrders,
+  fetchCart,
+  checkout,
 } from "./api.js";
 
 // Function to handle order completion

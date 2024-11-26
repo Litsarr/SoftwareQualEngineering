@@ -9,8 +9,10 @@ import {
   getCategories,
   uploadEditImages,
   getProductsByCategory,
-  createOrUpdateCart,
   addItemToCart,
+  fetchCart,
+  removeItemFromCart, // Import removeItemFromCart
+  updateCartItemQuantity, // Import updateCartItemQuantity
 } from "./api.js";
 
 // Function to dynamically add size and stock input fields
@@ -420,10 +422,46 @@ document.addEventListener("click", function (event) {
   }
 });
 
+// Function to fetch the cart and redirect to cart.html
+async function fetchCartAndRedirect() {
+  try {
+    const cart = await fetchCart();
+    console.log("Fetched cart:", cart);
+    window.location.href = "/pages/cart.html";
+  } catch (error) {
+    console.error("Error fetching cart:", error);
+    alert("Failed to fetch cart. Please try again.");
+  }
+}
+
+// Add event listener for the shopping cart icon
+const cartIcon = document.querySelector(".cart-img a");
+if (cartIcon) {
+  cartIcon.addEventListener("click", async (event) => {
+    event.preventDefault();
+    await fetchCartAndRedirect();
+  });
+} else {
+  console.error(".cart-img a element not found");
+}
+
+// Function to clear the cart
+async function clearCart() {
+  try {
+    const cart = await fetchCart();
+    for (const item of cart.items) {
+      await removeItemFromCart(item.id); // Use the item ID to remove each item from the cart
+    }
+    console.log("Cart cleared successfully");
+  } catch (error) {
+    console.error("Error clearing cart:", error);
+  }
+}
+
 // Initialize product display when the page loads
 window.addEventListener("DOMContentLoaded", displayProducts);
 
-// Export the loadProductDetails and createOrUpdateCart functions for use in the product page
+// Export the loadProductDetails and fetchCart functions for use in the product page
 export {
   addSize,
   addEditSize,
@@ -431,6 +469,9 @@ export {
   populateCategories,
   displayProductsByCategory,
   loadProductDetails,
-  createOrUpdateCart,
   addItemToCart,
+  fetchCart,
+  clearCart, // Add clearCart to exports
+  removeItemFromCart, // Add removeItemFromCart to exports
+  updateCartItemQuantity, // Add updateCartItemQuantity to exports
 };

@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <title>Product Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
     <link rel="stylesheet" href="/pages/product.css">
+    <style>
+        #product-sizes {
+            display: none; /* Hide the product sizes element */
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <section id="header">
-        <a href="/"><img src="/img/logo.png" class="logo" alt=""></a>
+        <a href="index.html"><img src="/img/logo.png" class="logo" alt=""></a>
         <div class="navbar-items">
             <ul id="navbar">
-                <li><a href="/">Home</a></li>
+                <li><a class="active" href="#category-bar">Categories</a></li>
+                <li><a href=".locations">Locations</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <div class="cart-img">
                     <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
@@ -33,7 +38,7 @@
             <p id="product-description"></p>
             <p id="product-price"></p>
             <p id="product-category"></p>
-            <p id="product-sizes"></p>
+            <p id="product-sizes"></p> <!-- Hidden element -->
             <label for="size-select">Size:</label>
             <select id="size-select">
                 <!-- Options will be populated dynamically -->

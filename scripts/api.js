@@ -537,6 +537,103 @@ async function addItemToCart(productId, size, quantity) {
   }
 }
 
+// Function to fetch the cart
+async function fetchCart() {
+  try {
+    const response = await fetch(`${BASE_URL}/cart`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch cart");
+    }
+
+    const cart = await response.json();
+    console.log("Fetched cart:", cart); // Log the fetched cart data
+    return cart;
+  } catch (error) {
+    console.error("Error fetching cart:", error);
+    throw error;
+  }
+}
+
+// Function to remove an item from the cart
+async function removeItemFromCart(cartItemId) {
+  try {
+    const response = await fetch(`${BASE_URL}/cart/item/${cartItemId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to remove item from cart");
+    }
+
+    const updatedCart = await response.json();
+    console.log("Item removed from cart:", updatedCart);
+    return updatedCart;
+  } catch (error) {
+    console.error("Error removing item from cart:", error);
+    throw error;
+  }
+}
+
+// Function to update the quantity of an item in the cart
+async function updateCartItemQuantity(cartItemId, quantity) {
+  try {
+    const response = await fetch(`${BASE_URL}/cart/item/${cartItemId}?quantity=${quantity}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update cart item quantity");
+    }
+
+    const updatedCart = await response.json();
+    console.log("Cart item quantity updated:", updatedCart);
+    return updatedCart;
+  } catch (error) {
+    console.error("Error updating cart item quantity:", error);
+    throw error;
+  }
+}
+
+// Function to checkout items in the cart
+async function checkout(checkoutRequest) {
+  try {
+    const response = await fetch(`${BASE_URL}/orders/checkout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(checkoutRequest),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to complete checkout");
+    }
+
+    const order = await response.json();
+    console.log("Checkout completed:", order);
+    return order;
+  } catch (error) {
+    console.error("Error during checkout:", error);
+    throw error;
+  }
+}
+
 // Export functions for use in other scripts
 export {
   login,
@@ -557,4 +654,8 @@ export {
   getCategories,
   createOrUpdateCart,
   addItemToCart,
+  fetchCart,
+  removeItemFromCart,
+  updateCartItemQuantity,
+  checkout, // Add checkout to exports
 };
