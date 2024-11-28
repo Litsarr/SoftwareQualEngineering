@@ -29,82 +29,94 @@ async function deleteOrderHandler(orderId) {
   }
 }
 
-// Function to render orders
+// Updated render orders function
 function renderOrders(orders, containerId, isCompleted = false) {
   const ordersContainer = document.getElementById(containerId);
 
   if (orders.length === 0) {
-    ordersContainer.innerHTML = `<p>No ${
+    ordersContainer.innerHTML = `<p class="no-orders">No ${
       isCompleted ? "completed" : ""
     } orders available.</p>`;
-  } else {
-    orders.forEach((order) => {
-      const orderElement = document.createElement("div");
-      orderElement.classList.add("order-block");
-      orderElement.id = `order-${order.orderId}`;
-
-      orderElement.innerHTML = `
-        <div class="order-header">
-          <span>Order Number: ${order.orderId}</span>
-          <span>Date: ${new Date(
-            isCompleted ? order.completedAt : order.orderDate
-          ).toLocaleDateString()}</span>
-          <span>Total Price: ₱${order.totalAmount.toFixed(2)}</span>
-        </div>
-        <table class="items-table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Quantity</th>
-              <th>Size</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${order.orderItems
-              .map(
-                (item) => `
-              <tr>
-                <td>${item.productName}</td>
-                <td>${item.quantity}</td>
-                <td>${item.size}</td>
-                <td>₱${item.price.toFixed(2)}</td>
-              </tr>`
-              )
-              .join("")}
-          </tbody>
-        </table>
-        <div class="item-details">
-          <p><strong>Name:</strong> ${order.customerName}</p>
-          <p><strong>Address:</strong> ${order.address}</p>
-          <p><strong>Postal Code:</strong> ${order.postalCode}</p>
-          <p><strong>Contact Info:</strong> ${order.contactInfo}</p>
-        </div>
-        ${
-          !isCompleted
-            ? `
-        <div class="crud-btns">
-          <button class="complete-btn">Complete Order</button>
-          <button class="delete-btn">Delete</button>
-        </div>`
-            : ""
-        }
-      `;
-      ordersContainer.appendChild(orderElement);
-
-      if (!isCompleted) {
-        const completeBtn = orderElement.querySelector(".complete-btn");
-        const deleteBtn = orderElement.querySelector(".delete-btn");
-
-        completeBtn.addEventListener("click", () =>
-          completeOrderHandler(order.orderId)
-        );
-        deleteBtn.addEventListener("click", () =>
-          deleteOrderHandler(order.orderId)
-        );
-      }
-    });
+    return;
   }
+
+  ordersContainer.innerHTML = ""; // Clear existing orders
+
+  orders.forEach((order) => {
+    const orderElement = document.createElement("div");
+    orderElement.classList.add("order-block");
+    orderElement.id = `order-${order.orderId}`;
+
+    orderElement.innerHTML = `
+            <div class="order-header">
+                <strong>#${order.orderId}</strong>
+                <span>${new Date(
+                  isCompleted ? order.completedAt : order.orderDate
+                ).toLocaleDateString()}</span>
+                <span class="order-total">₱${order.totalAmount.toFixed(
+                  2
+                )}</span>
+            </div>
+            <div class="order-content">
+                <div class="customer-info">
+                    <p><strong>${order.customerName}</strong></p>
+                    <p>${order.address}</p>
+                    <p>Postal: ${order.postalCode}</p>
+                    <p>Contact: ${order.contactInfo}</p>
+                </div>
+                <div class="order-items">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Size</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${order.orderItems
+                              .map(
+                                (item) => `
+                                <tr>
+                                    <td>${item.productName}</td>
+                                    <td>${item.size}</td>
+                                    <td>${item.quantity}</td>
+                                    <td>₱${item.price.toFixed(2)}</td>
+                                </tr>
+                            `
+                              )
+                              .join("")}
+                        </tbody>
+                    </table>
+                </div>
+                ${
+                  !isCompleted
+                    ? `
+                    <div class="order-actions">
+                        <button class="complete-btn">Complete</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                `
+                    : ""
+                }
+            </div>
+        `;
+
+    ordersContainer.appendChild(orderElement);
+
+    if (!isCompleted) {
+      const completeBtn = orderElement.querySelector(".complete-btn");
+      const deleteBtn = orderElement.querySelector(".delete-btn");
+
+      completeBtn.addEventListener("click", () =>
+        completeOrderHandler(order.orderId)
+      );
+      deleteBtn.addEventListener("click", () =>
+        deleteOrderHandler(order.orderId)
+      );
+    }
+  });
 }
 
 // Fetch and render recent orders

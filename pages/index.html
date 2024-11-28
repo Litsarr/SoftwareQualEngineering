@@ -24,8 +24,7 @@
       <div class="navbar-items">
         <ul id="navbar">
           <li><a class="active" href="#category-bar">Categories</a></li>
-          <li><a href=".locations">Locations</a></li>
-          <li><a href="contact.html">Contact</a></li>
+
           <div class="cart-img">
             <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
           </div>
@@ -175,14 +174,16 @@
   document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOMContentLoaded event fired');
     
-    // Check if the cart already exists
-    try {
-      const cart = await fetchCart();
-      console.log('Fetched cart:', cart);
-    } catch (error) {
-      console.error('Error fetching cart:', error);
+    // Simplify cart icon handler - no need to fetch cart before redirect
+    const cartIcon = document.querySelector('.cart-img a');
+    if (cartIcon) {
+        cartIcon.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = '/pages/cart.html';
+        });
     }
 
+    // Rest of your initialization code
     const categoryMappings = {
       "Islander Classics": { id: 1, section: "classic-product-cards-row" },
       "Kids": { id: 4, section: "kids-product-cards-row" },

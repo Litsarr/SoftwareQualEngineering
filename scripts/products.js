@@ -391,14 +391,11 @@ async function loadProductDetails() {
       product.description;
     document.getElementById(
       "product-price"
-    ).textContent = `$${product.price.toFixed(2)}`;
+    ).textContent = `₱${product.price.toFixed(2)}`;
     document.getElementById("product-category").textContent =
       product.category.name;
     document.getElementById("product-image-top").src = product.imageTopUrl;
     document.getElementById("product-image-side").src = product.imageSideUrl;
-    document.getElementById("product-sizes").textContent = formatSizes(
-      product.sizes
-    );
 
     // Populate size options
     const sizeSelect = document.getElementById("size-select");
@@ -409,8 +406,11 @@ async function loadProductDetails() {
       option.textContent = size;
       sizeSelect.appendChild(option);
     });
+
+    return product; // Return the product data for size/quantity handling
   } catch (error) {
     console.error("Error loading product details:", error);
+    return null;
   }
 }
 

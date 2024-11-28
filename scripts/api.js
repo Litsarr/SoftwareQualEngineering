@@ -221,6 +221,13 @@ async function uploadImages(event) {
     document.getElementById("topImageUrl").value = topImageUrl;
     document.getElementById("sideImageUrl").value = sideImageUrl;
 
+    // Show success popup
+    const popup = document.getElementById("upload-success-popup");
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000); // Hide after 3 seconds
+
     console.log("Top Image URL:", document.getElementById("topImageUrl").value);
     console.log(
       "Side Image URL:",
@@ -548,16 +555,22 @@ async function fetchCart() {
       credentials: "include",
     });
 
+    // Special handling for 404 (no cart exists yet)
+    if (response.status === 404) {
+      // Create a new cart if none exists
+      return await createOrUpdateCart();
+    }
+
     if (!response.ok) {
       throw new Error("Failed to fetch cart");
     }
 
     const cart = await response.json();
-    console.log("Fetched cart:", cart); // Log the fetched cart data
     return cart;
   } catch (error) {
     console.error("Error fetching cart:", error);
-    throw error;
+    // Return empty cart structure instead of throwing
+    return { items: [] };
   }
 }
 
