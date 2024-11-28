@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script type="module">
+        import { handleLogout } from "../scripts/logout.js";
+        import { uploadImages, uploadEditImages } from "../scripts/api.js";
+        import { addSize, addEditSize, displayProducts, populateCategories } from "../scripts/products.js";
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Attach event listeners
+            document.querySelector(".logout-btn").addEventListener("click", handleLogout);
+            document.querySelector("#upload-button").addEventListener("click", uploadImages);
+            document.getElementById('add-size-btn').addEventListener('click', addSize);
+            document.getElementById('add-edit-size-btn').addEventListener('click', addEditSize);
+
+            // Tab switching logic
+            const tabs = document.querySelectorAll(".tab");
+            tabs.forEach(tab => {
+                tab.addEventListener("click", function() {
+                    tabs.forEach(tab => tab.classList.remove("active"));
+                    this.classList.add("active");
+                    document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
+                    const tabContent = document.getElementById(this.id.replace("-tab", ""));
+                    tabContent.classList.add("active");
+                });
+            });
+
+            // Populate categories on page load
+            populateCategories();
+
+            // Fetch and display products on page load
+            displayProducts();
+        });
+    </script>
+    <script type="module" src="../scripts/orders.js"></script>
+    <script type="module" src="../scripts/products.js"></script>
+    <script type="module" src="../scripts/api.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        /* Header Styles */
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background-color: #e60000;
+        }
+        .dashboard-container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px 5px 0 0;
+            margin-right: 10px;
+        }
+        .tab.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .order-block {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+        .crud-btns {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .crud-btns button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .crud-btns button.add-btn,
+        .crud-btns button.edit-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .crud-btns button.delete-btn {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .items-table th, .items-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .items-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .items-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .item-details {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        /* Inventory Form Styles */
+        #add-item-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group input, .form-group textarea {
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        #sizes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .size-block {
+            display: flex;
+            gap: 10px;
+        }
+        .size-block input {
+            flex: 1;
+        }
+        .size-block .stock-input {
+            width: 100px;
+        }
+        .size-block button {
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 1.1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .size-block button:hover {
+            background-color: #218838;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Updated Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Updated Table Styles */
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .items-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        .items-table thead {
+            position: sticky;
+            top: 0;
+            background: #007bff;
+            z-index: 1;
+        }
+
+        /* Updated Order Styles */
+        .orders-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .order-block {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .order-header {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-content {
+            padding: 15px;
+        }
+
+        .customer-info {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .order-items table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        .order-items th,
+        .order-items td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-actions {
+            padding: 10px 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .order-actions button {
+            padding: 6px 12px;
+            font-size: 0.9em;
+        }
+
+        /* Remove the transform effect to keep orders in place */
+        .order-block:hover {
+            transform: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        /* Additional spacing fixes */
+        #all-orders, #completed-orders {
+            padding: 0 15px;
+        }
+
+        #all-orders h2, #completed-orders h2 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        /* Modal Updates */
+        .modal-content {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Updated Orders Styling */
+        .orders-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .order-block {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            width: 100%;
+        }
+
+        .order-header {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .order-header strong {
+            font-size: 1.1em;
+            color: #007bff;
+        }
+
+        .order-content {
+            padding: 20px;
+        }
+
+        .customer-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .customer-info p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .order-items table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .order-items th,
+        .order-items td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .order-items th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .order-items tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .order-total {
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .order-actions button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .order-actions .complete-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .order-actions .complete-btn:hover {
+            background-color: #218838;
+        }
+
+        .order-actions .delete-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .order-actions .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .no-orders {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-size: 1.1em;
+        }
+
+        .popup-message {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Islander Administrator</h1>
+        <button class="logout-btn">Logout</button>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="tabs">
+            <div class="tab active" id="all-orders-tab">All Orders</div>
+            <div class="tab" id="completed-orders-tab">Completed Orders</div>
+            <div class="tab" id="add-item-tab">Add a New Item</div>
+            <div class="tab" id="existing-items-tab">Existing Items</div>
+        </div>
+
+        <div id="all-orders" class="tab-content active">
+            <h2>Recent Orders</h2>
+            <div class="orders-container">
+                <!-- Orders will be dynamically populated here -->
+            </div>
+        </div>
+
+        <div id="completed-orders" class="tab-content">
+            <h2>Completed Orders</h2>
+            <div class="orders-container">
+                <!-- Completed orders will be dynamically populated here -->
+            </div>
+        </div>
+
+        <div id="add-item" class="tab-content">
+            <div class="form-container">
+                <h2>Add a New Item</h2>
+                <form id="upload-images-form" enctype="multipart/form-data">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="ImageTop">First Image:</label>
+                            <input type="file" id="ImageTop" name="ImageTop" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ImageSide">Second Image:</label>
+                            <input type="file" id="ImageSide" name="ImageSide" required>
+                        </div>
+                    </div>
+                    <button type="button" id="upload-button">Upload Images</button>
+                </form>
+                
+                <form id="add-item-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" name="price" step="0.01" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category:</label>
+                            <select id="category" name="category" required></select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="sizes-container">
+                        <label>Sizes:</label>
+                        <div class="size-block">
+                            <input type="text" name="sizes[]" placeholder="Size" required>
+                            <input type="number" name="stock[]" class="stock-input" placeholder="Stock" required>
+                        </div>
+                        <button type="button" id="add-size-btn">Add Size</button>
+                    </div>
+                    <!-- Hidden Fields for Uploaded Image URLs -->
+                    <input type="hidden" id="topImageUrl" name="topImageUrl">
+                    <input type="hidden" id="sideImageUrl" name="sideImageUrl">
+                    <button type="submit">Add Item</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="existing-items" class="tab-content">
+            <h2>Existing Items</h2>
+            <div class="table-container">
+                <table class="items-table" id="items-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Sizes and Quantity</th>
+                            <th>First Image</th>
+                            <th>Second Image</th>
+                            <th>Category</th> <!-- Added category header -->
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Existing items will appear here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Modal for Edit Product -->
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Edit Product</h2>
+                <form id="edit-upload-images-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="edit-ImageTop">First Image:</label>
+                        <input type="file" id="edit-ImageTop" name="ImageTop">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-ImageSide">Second Image:</label>
+                        <input type="file" id="edit-ImageSide" name="ImageSide">
+                    </div>
+                    <button type="button" id="edit-upload-button">Upload Images</button>
+                </form>
+                <form id="edit-product-form">
+                    <input type="hidden" name="productId" id="edit-product-id">
+                    <div class="form-group">
+                        <label for="edit-name">Name:</label>
+                        <input type="text" id="edit-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-description">Description:</label>
+                        <textarea id="edit-description" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-price">Price:</label>
+                        <input type="number" id="edit-price" name="price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-category">Category:</label>
+                        <select id="edit-category" name="category" required>
+                            <!-- Categories will be dynamically loaded -->
+                        </select>
+                    </div>
+                    <div class="form-group" id="edit-sizes-container">
+                        <label>Sizes:</label>
+                        <!-- Sizes will be dynamically loaded -->
+                    </div>
+                    <button type="button" id="add-edit-size-btn">Add Size</button>
+                    <input type="hidden" id="edit-topImageUrl" name="topImageUrl">
+                    <input type="hidden" id="edit-sideImageUrl" name="sideImageUrl">
+                    <button type="submit">Update Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="popup-message" id="upload-success-popup">Images uploaded successfully!</div>
+</body>
+</html>

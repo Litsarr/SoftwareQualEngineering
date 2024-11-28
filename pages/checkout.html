@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Islander</title>
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .order-summary {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .order-summary h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .order-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .order-item img {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .checkout-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .button-group button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .complete-purchase {
+            background: #007bff;
+            color: white;
+            flex: 2;
+        }
+
+        .complete-purchase:hover {
+            background: #0056b3;
+        }
+
+        .cancel-order {
+            background: #dc3545;
+            color: white;
+            flex: 1;
+        }
+
+        .cancel-order:hover {
+            background: #c82333;
+        }
+
+        .total-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .total-section h3 {
+            color: #2c3e50;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="order-summary"></div>
+            <div class="total-section">
+                <h3>Total: <span id="total-bill">₱0.00</span></h3>
+            </div>
+        </div>
+
+        <div class="checkout-form">
+            <form id="checkout-form">
+                <div class="form-section">
+                    <h4>Personal Details</h4>
+                    <div class="form-group">
+                        <label for="customerName">Full Name</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactInfo">Contact Number</label>
+                        <input type="tel" id="contactInfo" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Shipping Details</h4>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">Postal Code</label>
+                        <input type="text" id="postalCode" required>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="cancel-order" onclick="window.location.href='cart.html'">Cancel</button>
+                    <button type="submit" class="complete-purchase">Complete Purchase</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { fetchCart, checkout } from '../scripts/api.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await renderOrderSummary();
+        });
+
+        async function renderOrderSummary() {
+            const orderSummary = document.getElementById('order-summary');
+            const totalBill = document.getElementById('total-bill');
+            orderSummary.innerHTML = '';
+
+            const cart = await fetchCart();
+            const checkedCartItemIds = JSON.parse(localStorage.getItem('checkedCartItemIds')) || [];
+
+            if (checkedCartItemIds.length === 0) {
+                orderSummary.innerHTML = '<p>Your cart is empty.</p>';
+                totalBill.innerText = '₱0.00';
+                return;
+            }
+
+            let total = 0;
+            cart.items.forEach(item => {
+                if (checkedCartItemIds.includes(item.id.toString())) {
+                    const itemTotal = item.product.price * item.quantity;
+                    total += itemTotal;
+
+                    const imageUrl = item.product.imageSide.startsWith("https://")
+                        ? item.product.imageSide
+                        : `https://ozptbbwzmxdbmzgeyqmf.supabase.co/storage/v1/object/public/${item.product.imageSide}`;
+
+                    const itemHTML = `
+                        <div class="order-item d-flex align-items-center mb-3">
+                            <img src="${imageUrl}" alt="${item.product.name}" class="img-fluid me-3" style="max-width: 80px;">
+                            <div>
+                                <p>${item.product.name}</p>
+                                <p>Quantity: ${item.quantity}</p>
+                                <p>Total Price: ₱${itemTotal.toFixed(2)}</p>
+                            </div>
+                        </div>
+                    `;
+                    orderSummary.innerHTML += itemHTML;
+                }
+            });
+
+            totalBill.innerText = `₱${total.toFixed(2)}`;
+        }
+
+        document.getElementById('checkout-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const customerName = document.getElementById('customerName').value;
+            const contactInfo = document.getElementById('contactInfo').value;
+            const address = document.getElementById('address').value;
+            const postalCode = document.getElementById('postalCode').value;
+            const checkedCartItemIds = JSON.parse(localStorage.getItem('checkedCartItemIds')) || [];
+
+            const checkoutRequest = {
+                customerName,
+                contactInfo,
+                address,
+                postalCode,
+                checkedCartItemIds
+            };
+
+            try {
+                await checkout(checkoutRequest);
+                alert('Thank you for your purchase! Your order has been placed.');
+                localStorage.removeItem('checkedCartItemIds'); // Clear the checked items
+                window.location.href = 'index.html'; // Changed redirect to index.html
+            } catch (error) {
+                console.error('Error during checkout:', error);
+                alert('Failed to complete purchase. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

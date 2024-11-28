@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Islander</title>
+    <link rel="stylesheet" href="/pages/styles.css">
+    <style>
+        .cart-page {
+            padding: 40px 0;
+            background-color: #f8f9fa;
+            min-height: calc(100vh - 80px);
+        }
+
+        .cart-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+
+        .cart-header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cart-header h1 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: auto 100px 2fr 1fr 1fr 1fr auto;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .item-size {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+        .quantity-controls button {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 28px;
+            height: 28px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quantity-controls button:hover {
+            background: #e9ecef;
+        }
+
+        .quantity-controls input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .cart-total {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .cart-actions button {
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checkout-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .clear-cart-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .clear-cart-btn:hover {
+            background-color: #5a6268;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .empty-cart p {
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .continue-shopping:hover {
+            background-color: #0056b3;
+        }
+
+        .checkout-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <section id="header">
+        <a href="index.html"><img src="/img/logo.png" class="logo" alt=""></a>
+        <div class="navbar-items">
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <div class="cart-img">
+                    <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                </div>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Cart Page -->
+    <div class="cart-page">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h1>Your Shopping Cart</h1>
+            </div>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically populated here -->
+            </div>
+            <div id="empty-cart-message" class="empty-cart" style="display: none;">
+                <p>Your cart is empty</p>
+                <a href="index.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+            <div id="cart-summary" class="cart-summary">
+                <div class="cart-total">
+                    Total: <span id="cart-total">₱0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
+                    <button class="checkout-btn" id="proceed-to-checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { fetchCart, addItemToCart, removeItemFromCart, updateCartItemQuantity, clearCart } from '../scripts/products.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadCartItems();
+        });
+
+        async function loadCartItems() {
+            try {
+                const cart = await fetchCart();
+                const cartItemsContainer = document.getElementById('cart-items');
+                const emptyCartMessage = document.getElementById('empty-cart-message');
+                const cartSummary = document.getElementById('cart-summary');
+                
+                cartItemsContainer.innerHTML = ''; // Clear existing items
+
+                if (!cart.items || cart.items.length === 0) {
+                    // Show empty cart message and hide summary
+                    emptyCartMessage.style.display = 'block';
+                    cartSummary.style.display = 'none';
+                    return;
+                }
+
+                // Hide empty cart message and show summary
+                emptyCartMessage.style.display = 'none';
+                cartSummary.style.display = 'block';
+
+                let total = 0;
+
+                cart.items.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <input type="checkbox" class="checkout-checkbox" data-cart-item-id="${item.id}">
+                        <img src="${getImageUrl(item.product.imageSide)}" alt="${item.product.name}">
+                        <div class="item-name">${item.product.name}</div>
+                        <div class="item-price">₱${item.product.price.toFixed(2)}</div>
+                        <div class="item-size">Size: ${item.size}</div>
+                        <div class="quantity-controls">
+                            <button class="decrease-qty" data-cart-item-id="${item.id}" data-product-id="${item.product.id}" data-size="${item.size}">-</button>
+                            <input type="number" value="${item.quantity}" min="1" readonly>
+                            <button class="increase-qty" data-cart-item-id="${item.id}" data-product-id="${item.product.id}" data-size="${item.size}">+</button>
+                        </div>
+                        <button class="delete-btn" data-cart-item-id="${item.id}" data-product-id="${item.product.id}" data-size="${item.size}">Delete</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+
+                    total += item.product.price * item.quantity;
+                });
+
+                document.getElementById('cart-total').textContent = `₱${total.toFixed(2)}`;
+
+                // Add event listeners for quantity controls and delete buttons
+                document.querySelectorAll('.decrease-qty').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const cartItemId = event.target.dataset.cartItemId;
+                        const input = event.target.nextElementSibling;
+                        const currentQuantity = parseInt(input.value);
+                        const newQuantity = currentQuantity - 1;
+                        if (newQuantity > 0) {
+                            await updateCartItemQuantity(cartItemId, newQuantity);
+                            await loadCartItems();
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.increase-qty').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const cartItemId = event.target.dataset.cartItemId;
+                        const input = event.target.previousElementSibling;
+                        const currentQuantity = parseInt(input.value);
+                        const newQuantity = currentQuantity + 1;
+                        await updateCartItemQuantity(cartItemId, newQuantity);
+                        await loadCartItems();
+                    });
+                });
+
+                document.querySelectorAll('.delete-btn').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const cartItemId = event.target.dataset.cartItemId;
+                        await removeItemFromCart(cartItemId);
+                        await loadCartItems();
+                    });
+                });
+
+                document.getElementById('clear-cart-btn').addEventListener('click', async () => {
+                    await clearCart();
+                    await loadCartItems(); // Reload cart items after clearing
+                });
+
+                document.getElementById('proceed-to-checkout-btn').addEventListener('click', () => {
+                    const checkedCartItemIds = Array.from(document.querySelectorAll('.checkout-checkbox:checked')).map(checkbox => checkbox.dataset.cartItemId);
+                    localStorage.setItem('checkedCartItemIds', JSON.stringify(checkedCartItemIds));
+                    window.location.href = '/pages/checkout.html';
+                });
+
+                // Add checkbox change event listener to update total
+                document.querySelectorAll('.checkout-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', updateTotal);
+                });
+
+                // Initial total calculation (in case of page reload with checked items)
+                updateTotal();
+
+                // Function to update total based on checked items
+                function updateTotal() {
+                    let total = 0;
+                    document.querySelectorAll('.checkout-checkbox:checked').forEach(checkbox => {
+                        const cartItem = checkbox.closest('.cart-item');
+                        const price = parseFloat(cartItem.querySelector('.item-price').textContent.replace('₱', ''));
+                        const quantity = parseInt(cartItem.querySelector('.quantity-controls input').value);
+                        total += price * quantity;
+                    });
+                    document.getElementById('cart-total').textContent = `₱${total.toFixed(2)}`;
+
+                    // Enable/disable checkout button based on selection
+                    const checkoutBtn = document.getElementById('proceed-to-checkout-btn');
+                    checkoutBtn.disabled = document.querySelectorAll('.checkout-checkbox:checked').length === 0;
+                    checkoutBtn.style.opacity = checkoutBtn.disabled ? '0.5' : '1';
+                }
+            } catch (error) {
+                console.error('Error loading cart items:', error);
+                // Show error message in cart
+                const cartItemsContainer = document.getElementById('cart-items');
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: red;">Error loading cart. Please try again later.</p>';
+            }
+        }
+
+        function getImageUrl(imagePath) {
+            if (!imagePath) {
+                return '/img/placeholder.png'; // Use a placeholder image if the image URL is undefined
+            }
+            return imagePath.startsWith("https://")
+                ? imagePath
+                : `https://ozptbbwzmxdbmzgeyqmf.supabase.co/storage/v1/object/public/${imagePath}`;
+        }
+    </script>
+</body>
+</html>
